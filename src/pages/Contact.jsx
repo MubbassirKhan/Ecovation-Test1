@@ -77,13 +77,12 @@ export default function Contact() {
           </Reveal>
           <Reveal delay={0.08}>
             <h1 className="page-hero__title">
-              Let’s talk about <em>your space</em>.
+              Ready to <em>start?</em>
             </h1>
           </Reveal>
           <Reveal delay={0.16}>
             <p className="page-hero__lede">
-              A new workspace, a noisy meeting room, a brand reception — we begin with a
-              conversation about what the room needs to do.
+              Share a few details and we’ll send next steps within 24 hours.
             </p>
           </Reveal>
         </div>
@@ -101,7 +100,15 @@ export default function Contact() {
 
             <ul className="contact-page__list">
               <li className="contact-detail">
-                <span className="contact-detail__label">Studio</span>
+                <span className="contact-detail__label">Ecovation</span>
+                <span className="contact-detail__value contact-detail__value--text">
+                  {CONTACT.addressLine1}
+                  <br />
+                  {CONTACT.addressLine2}
+                </span>
+              </li>
+              <li className="contact-detail">
+                <span className="contact-detail__label">Phone</span>
                 <a className="contact-detail__value" href={CONTACT.phoneHref}>
                   {CONTACT.phoneDisplay}
                 </a>
@@ -111,14 +118,6 @@ export default function Contact() {
                 <a className="contact-detail__value" href={CONTACT.emailHref}>
                   {CONTACT.email}
                 </a>
-              </li>
-              <li className="contact-detail">
-                <span className="contact-detail__label">Address</span>
-                <span className="contact-detail__value contact-detail__value--text">
-                  {CONTACT.addressLine1}
-                  <br />
-                  {CONTACT.addressLine2}, {CONTACT.region}
-                </span>
               </li>
             </ul>
           </Reveal>
@@ -241,10 +240,10 @@ export default function Contact() {
                 </div>
 
                 <button className="form__submit" type="submit">
-                  Send message <span aria-hidden="true">→</span>
+                  Send enquiry <span aria-hidden="true">→</span>
                 </button>
                 <p className="form__note">
-                  This form is a front-end demo — submit sends nothing yet. It opens our mail link:
+                  Prefer email? Write to us directly at
                   <a href={CONTACT.emailHref}> {CONTACT.email}</a>.
                 </p>
               </form>

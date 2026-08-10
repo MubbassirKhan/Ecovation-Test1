@@ -46,7 +46,7 @@ export default function Navbar() {
         </nav>
 
         <Link className="nav__cta" to="/contact">
-          Start a project
+          Get a quote
         </Link>
 
         <button

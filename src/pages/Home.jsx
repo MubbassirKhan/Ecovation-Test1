@@ -1,41 +1,201 @@
 import Hero from '../components/Hero';
 import Marquee from '../components/Marquee';
-import Intro from '../components/Intro';
 import Studio from '../components/Studio';
-import PortfolioSection from '../components/PortfolioSection';
-import Projects from '../components/Projects';
 import Services from '../components/Services';
+import Projects from '../components/Projects';
 import CTASection from '../components/CTASection';
-import { PROJECTS } from '../data/projects';
-import { IMAGES } from '../data/projects';
-import { CONTACT } from '../data/siteData';
+import Reveal from '../components/Reveal';
+import {
+  HIGHLIGHTS,
+  MISSION_VISION,
+  WHY_CHOOSE,
+  APPROACH_STEPS,
+  CLIENTS,
+  CONTACT,
+} from '../data/siteData';
+import { PROJECTS, IMAGES } from '../data/projects';
+import usePageMeta from '../utils/usePageMeta';
 
 /**
  * Ecovation — Home.
- * Scroll ladder: Hero (logo + parallax) → Marquee → Intro → Studio
- * → Workspace Design (sticky image) → Acoustic Solutions (rows) →
- * Selected Work (sticky crossfade) → CTA.
+ * Hero → Marquee → Key statistics → Who we are → Mission & Vision →
+ * Our services → Featured projects → Why choose Ecovation → How we work
+ * → Our clients → Ready to start? → Footer.
  */
 export default function Home() {
+  usePageMeta(
+    'Ecovation — Sustainable Workspaces & PET Acoustic Panels, Bangalore',
+    'Transforming modern workspaces with sustainable acoustic solutions. Custom PET panels and interior design built for comfort, clarity, and environmental responsibility — Bangalore.'
+  );
+
   return (
     <>
       <Hero />
       <Marquee />
-      <Intro />
+      <Stats />
       <Studio />
-      <PortfolioSection />
+      <MissionVision />
       <Services />
       <Projects projects={PROJECTS} />
+      <WhyChoose />
+      <HowWeWork />
+      <Clients />
       <CTASection
-        kicker="Let's create better spaces"
-        heading="The quiet office your team will notice in the first minute."
+        kicker="Ready to start?"
+        heading="Ready to start?"
+        lede="Share a few details and we'll send next steps within 24 hours."
         email={{ href: CONTACT.emailHref, label: CONTACT.email }}
         phone={{ href: CONTACT.phoneHref, label: CONTACT.phoneDisplay }}
         note={CONTACT.address}
         mediaSrc={IMAGES.contact}
-        ctaLabel="Start a project"
+        ctaLabel="Contact us"
         to="/contact"
       />
     </>
+  );
+}
+
+/* ------------------------------------------------------------
+   Key statistics — the studio's real numbers.
+   ------------------------------------------------------------ */
+function Stats() {
+  return (
+    <section className="stats" aria-label="Ecovation in numbers">
+      <div className="container">
+        <div className="studio__stats">
+          {HIGHLIGHTS.map((s) => (
+            <div className="studio__stat" key={s.label}>
+              <span className="studio__stat-num">{s.value}</span>
+              <span className="studio__stat-label">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------
+   Mission & Vision — two editorial statements.
+   ------------------------------------------------------------ */
+function MissionVision() {
+  return (
+    <section className="mission container">
+      <Reveal>
+        <p className="kicker">
+          <span className="kicker__dot" aria-hidden="true" />
+          Mission &amp; Vision
+        </p>
+      </Reveal>
+      <Reveal delay={0.08}>
+        <h2 className="mission__heading">
+          Why we do <em>what we do</em>.
+        </h2>
+      </Reveal>
+      <div className="mission__grid">
+        {MISSION_VISION.map((m, i) => (
+          <Reveal key={m.tag} className="mission__card" delay={i * 0.08}>
+            <span className="mission__tag">{m.tag}</span>
+            <p className="mission__statement">{m.text}</p>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------
+   Why choose Ecovation — numbered differentiators.
+   ------------------------------------------------------------ */
+function WhyChoose() {
+  return (
+    <section className="values">
+      <div className="container">
+        <Reveal>
+          <p className="kicker">
+            <span className="kicker__dot" aria-hidden="true" />
+            Why us
+          </p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <h2 className="values__title">
+            Why choose <em>Ecovation</em>.
+          </h2>
+        </Reveal>
+        <div className="values__grid">
+          {WHY_CHOOSE.map((v) => (
+            <Reveal key={v.index} className="values__card">
+              <span className="values__num" aria-hidden="true">{v.index}</span>
+              <h3 className="values__card-title">{v.title}</h3>
+              <p className="values__card-body">{v.body}</p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------
+   How we work — a clear 3-step process.
+   ------------------------------------------------------------ */
+function HowWeWork() {
+  return (
+    <section className="process">
+      <div className="container">
+        <Reveal>
+          <p className="kicker">
+            <span className="kicker__dot" aria-hidden="true" />
+            Our approach
+          </p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <h2 className="process__title">
+            How we <em>work</em>.
+          </h2>
+        </Reveal>
+        <ol className="process__list">
+          {APPROACH_STEPS.map((s, i) => (
+            <Reveal key={s.index} className="process__step" delay={i * 0.08}>
+              <span className="values__num" aria-hidden="true">{s.index}</span>
+              <h3 className="process__step-title">{s.title}</h3>
+              <p className="process__step-body">{s.body}</p>
+            </Reveal>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------
+   Our clients — typographic wordmarks (no fabricated logos).
+   ------------------------------------------------------------ */
+function Clients() {
+  return (
+    <section className="clients">
+      <div className="container">
+        <Reveal>
+          <p className="kicker">
+            <span className="kicker__dot" aria-hidden="true" />
+            Our clients
+          </p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <h2 className="clients__title">
+            Teams we have <em>built for</em>.
+          </h2>
+        </Reveal>
+        <Reveal delay={0.14}>
+          <ul className="clients__list">
+            {CLIENTS.map((c) => (
+              <li className="clients__item" key={c}>
+                {c}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </div>
+    </section>
   );
 }

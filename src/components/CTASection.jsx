@@ -6,7 +6,7 @@ import Reveal from './Reveal';
  * Preserves the approved contact-section atmosphere (image scrim, centred),
  * without invented copy. Links to /contact (real form) and tel:/mailto:.
  */
-export default function CTASection({ kicker = 'Start a project', heading, email, phone, to = '/contact', ctaLabel = "Let's talk", mediaSrc, note }) {
+export default function CTASection({ kicker = 'Start a project', heading, email, phone, to = '/contact', ctaLabel = "Let's talk", mediaSrc, note, lede }) {
   return (
     <section className="cta" id="cta">
       {mediaSrc && (
@@ -24,6 +24,11 @@ export default function CTASection({ kicker = 'Start a project', heading, email,
         <Reveal delay={0.08}>
           <h2 className="cta__heading">{heading}</h2>
         </Reveal>
+        {lede && (
+          <Reveal delay={0.12}>
+            <p className="cta__lede">{lede}</p>
+          </Reveal>
+        )}
         <Reveal delay={0.16}>
           <div className="cta__actions">
             <Link className="cta__btn" to={to}>

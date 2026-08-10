@@ -3,36 +3,37 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Reveal from '../components/Reveal';
 import ParallaxImage from '../components/ParallaxImage';
 import CTASection from '../components/CTASection';
-import { WORKSPACE_TYPES } from '../data/services';
+import { WORKSPACE_FOCUS, WORKSPACE_OUTCOMES } from '../data/services';
 import { IMAGES } from '../data/projects';
 import { CONTACT } from '../data/siteData';
 import { onImgError } from '../utils/image';
 import usePageMeta from '../utils/usePageMeta';
 
 /**
- * Workspaces — hero, philosophy, the five workspace typologies, and the
- * sustainable-interiors statement on how the room is built.
+ * Workspaces — hero, philosophy (why it matters beyond looks), the full
+ * list of workspace solutions, and the sustainable-interiors statement.
  */
 export default function Workspaces() {
   usePageMeta(
     'Workspaces — Ecovation, Sustainable Workspace Design in Bangalore',
-    'Workspace design and fit-outs in Bangalore — open offices, private offices, meeting rooms, collaboration zones and reception areas, planned around daylight, people and acoustic comfort.'
+    'Ecovation designs and delivers modern workspaces that combine thoughtful interior planning, sustainable materials, acoustic comfort and premium finishes — in Bangalore.'
   );
 
   return (
     <>
       <Hero />
       <PhilosophySection />
-      <TypesList />
+      <FocusList />
       <SustainableSection />
       <CTASection
-        kicker="Let's design your workspace"
-        heading="Tell us how your team works — we'll draw the room around it."
+        kicker="Start your project"
+        heading="The workspace your team deserves to work in."
+        lede="Share a few details and we'll send next steps within 24 hours."
         email={{ href: CONTACT.emailHref, label: CONTACT.email }}
         phone={{ href: CONTACT.phoneHref, label: CONTACT.phoneDisplay }}
         note={CONTACT.address}
         mediaSrc={IMAGES.openOffice}
-        ctaLabel="Start your project"
+        ctaLabel="Get a quote"
         to="/contact"
       />
     </>
@@ -70,13 +71,14 @@ function Hero() {
         </Reveal>
         <Reveal delay={0.08}>
           <h1 className="page-hero__title">
-            Offices planned <em>for the people in them</em>.
+            Sustainable workspace design <em>&amp; interiors</em>.
           </h1>
         </Reveal>
         <Reveal delay={0.16}>
           <p className="page-hero__lede">
-            Every typology of the modern workplace — open floors, private rooms, meeting
-            suites, collision zones, reception — planned for daylight, movement and calm.
+            Ecovation designs and delivers modern workspaces that combine thoughtful
+            interior planning, sustainable materials, acoustic comfort, and premium
+            finishes.
           </p>
         </Reveal>
       </motion.div>
@@ -103,22 +105,29 @@ function PhilosophySection() {
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="ws-philosophy__heading">
-              The room is the fourth member of the team.
+              The goal is not simply an office that looks good.
             </h2>
           </Reveal>
           <Reveal delay={0.16}>
             <div className="ws-philosophy__body">
               <p>
-                We begin a workspace from how the team actually works — who needs quiet,
-                who needs together, where the day flows loudest. Then we plan space,
-                light and sound around those rhythms.
+                Every workspace we deliver is planned so the room works as hard as
+                the people in it — ergonomic flow, natural comfort, and acoustic
+                balance baked in from the first drawing.
               </p>
               <p>
-                Acoustic comfort is baked into the plan from the first drawing: ceilings
-                that absorb, walls that carry the voice, screens that divide without
-                enclosing. The result is a room that never competes with your work.
+                Sustainable materials and premium finishes come together as one
+                system, so the space performs, endures, and strengthens the brand
+                that works within it.
               </p>
             </div>
+          </Reveal>
+          <Reveal delay={0.12} className="studio__pillars">
+            {WORKSPACE_OUTCOMES.map((o) => (
+              <span className="studio__pillar" key={o}>
+                {o}
+              </span>
+            ))}
           </Reveal>
         </div>
       </div>
@@ -126,9 +135,9 @@ function PhilosophySection() {
   );
 }
 
-function TypesList() {
+function FocusList() {
   return (
-    <section className="ws-types">
+    <section className="focus">
       <div className="container">
         <Reveal>
           <p className="kicker">
@@ -137,39 +146,21 @@ function TypesList() {
           </p>
         </Reveal>
         <Reveal delay={0.08}>
-          <h2 className="ws-types__title">The five rooms of a complete workspace</h2>
+          <h2 className="focus__title">The complete workspace, one system.</h2>
         </Reveal>
       </div>
 
-      <div className="ws-types__list">
-        {WORKSPACE_TYPES.map((t, i) => (
-          <article className="ws-type" key={t.id}>
-            <div className="container ws-type__row">
-              <Reveal className="ws-type__index" delay={i * 0.04}>
-                <span aria-hidden="true">{t.index}</span>
-              </Reveal>
-
-              <Reveal className="ws-type__content" delay={i * 0.04}>
-                <h3 className="ws-type__title">{t.title}</h3>
-                <p className="ws-type__blurb">{t.blurb}</p>
-                <ul className="ws-type__notes">
-                  {t.notes.map((n) => (
-                    <li key={n}>{n}</li>
-                  ))}
-                </ul>
-              </Reveal>
-
-              <Reveal className="ws-type__media" delay={i * 0.06}>
-                <ParallaxImage
-                  src={t.image}
-                  alt={t.title}
-                  ratio="4 / 3"
-                  className="ws-type__figure"
-                />
-              </Reveal>
-            </div>
-          </article>
-        ))}
+      <div className="container">
+        <ol className="focus__list">
+          {WORKSPACE_FOCUS.map((item, i) => (
+            <Reveal key={item} className="focus__row" delay={(i % 5) * 0.04}>
+              <span className="focus__num" aria-hidden="true">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span className="focus__label">{item}</span>
+            </Reveal>
+          ))}
+        </ol>
       </div>
     </section>
   );
@@ -208,13 +199,14 @@ function SustainableSection() {
         <Reveal delay={0.16}>
           <div className="ws-sustainable__body">
             <p>
-              PET acoustic panels are pressed from recycled bottles into sound-absorbing
-              boards: light, rigid, fire-safe and printable. The sustainability is not a
-              label on the wall — it shushes the room.
+              PET acoustic panels are pressed from recycled bottles into
+              sound-absorbing boards: light, rigid, fire-safe and finished to
+              your specification. The sustainability is not a label on the wall —
+              it quiets the room.
             </p>
             <p>
-              Wherever we can, finishes are chosen to be honest, durable and kind — so the
-              office you build is the office that lasts.
+              Finishes are chosen to be honest, durable and kind to the environment,
+              so the workspace you build is the workspace that lasts.
             </p>
           </div>
         </Reveal>

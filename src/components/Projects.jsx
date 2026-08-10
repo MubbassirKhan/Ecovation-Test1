@@ -39,7 +39,7 @@ export default function Projects({ projects }) {
           <Scene key={project.id} project={project} index={i} total={n} progress={scrollYProgress} />
         ))}
 
-        <p className="projects__lede">Selected work</p>
+        <p className="projects__lede">Featured projects</p>
         <div className="projects__index" aria-hidden="true">
           <span className="projects__index--cur">{String(current + 1).padStart(2, '0')}</span>
           <span className="projects__index--total">/ {String(n).padStart(2, '0')}</span>

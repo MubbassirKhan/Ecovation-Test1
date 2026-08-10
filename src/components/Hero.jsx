@@ -19,8 +19,8 @@ export default function Hero() {
 
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
-  const imgY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
-  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '28%']);
+  // Background stays visually fixed (position: fixed in CSS) while the
+  // content scrolls normally; only a gentle opacity exit remains linked.
   const fade = useTransform(scrollYProgress, [0, 0.78], [1, 0]);
 
   const words = ['Sustainable', 'Workspaces.'];
@@ -29,11 +29,10 @@ export default function Hero() {
   return (
     <header className="hero" id="top" ref={heroRef}>
       <div className="hero__media">
-        <motion.img
+        <img
           className="hero__img"
           src={IMAGES.hero}
           alt="Open-plan office with natural light and calm, considered workstations"
-          style={{ y: imgY }}
           fetchPriority="high"
           loading="eager"
           decoding="async"
@@ -43,7 +42,7 @@ export default function Hero() {
         <div className="hero__veil" aria-hidden="true" />
       </div>
 
-      <motion.div className="hero__content" style={{ y: contentY, opacity: fade }}>
+      <motion.div className="hero__content" style={{ opacity: fade }}>
         <p className="kicker hero__over">
           <span className="kicker__dot" aria-hidden="true" />
           EcoVation — Sustainable Workplaces &amp; PET Panels

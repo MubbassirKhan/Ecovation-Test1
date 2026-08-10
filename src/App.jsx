@@ -1,7 +1,6 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
-import About from './pages/About';
 import Workspaces from './pages/Workspaces';
 import AcousticPanels from './pages/AcousticPanels';
 import ProjectsPage from './pages/Projects';
@@ -10,21 +9,21 @@ import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 
 /**
- * Ecovation Interiors — multi-page site.
+ * Ecovation — multi-page site.
  *   /                  Home
- *   /about             Editorial story
- *   /workspaces        Workspace design & types
+ *   /workspaces        Workspace design & fit-outs
  *   /acoustic-panels   PET panels & acoustic solutions
- *   /projects          Portfolio index
+ *   /projects          Featured projects
  *   /projects/:slug    Project detail
  *   /contact           Real contact details + enquiry form
+ *   /about             Legacy — now part of the Home "Who we are" section.
  */
 export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
+        <Route path="about" element={<Navigate to="/" replace />} />
         <Route path="workspaces" element={<Workspaces />} />
         <Route path="acoustic-panels" element={<AcousticPanels />} />
         <Route path="projects" element={<ProjectsPage />} />

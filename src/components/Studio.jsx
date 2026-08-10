@@ -1,21 +1,20 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Reveal from './Reveal';
+import { KEY_CAPABILITIES } from '../data/siteData';
 import { IMAGES } from '../data/projects';
 import { onImgError } from '../utils/image';
 
 /**
- * Studio → About statement on the Home page.
- * Editorial image with its own small parallax (in normal flow) +
- * copy. Fake stats removed — no invented years/projects/awards.
+ * Studio → "Who we are" on the Home page.
+ * Editorial image with its own small parallax (in normal flow) + copy
+ * and the four key capabilities as pill badges.
  */
 export default function Studio() {
   const figureRef = useRef(null);
 
   const { scrollYProgress } = useScroll({ target: figureRef, offset: ['start end', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
-
-  const PILLARS = ['Material-conscious', 'Acoustically composed', 'People-first'];
 
   return (
     <section className="studio container" id="about">
@@ -46,29 +45,28 @@ export default function Studio() {
           <Reveal>
             <p className="kicker">
               <span className="kicker__dot" aria-hidden="true" />
-              About EcoVation
+              Who we are
             </p>
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="studio__heading">
-              Workplaces that sound <em>as good</em> as they look.
+              Designing spaces that <em>work &amp; sound right</em>.
             </h2>
           </Reveal>
           <Reveal delay={0.16} className="studio__body">
             <p>
-              EcoVation is a Bangalore studio for sustainable workspaces and acoustic
-              interiors. We shape offices, meeting rooms, collaboration zones and
-              reception areas around how people actually work — and around how a room
-              should sound.
+              Ecovation transforms interiors through thoughtful design,
+              recycled-material innovation, and acoustic comfort. We create spaces
+              that look premium, work better, and support sustainability goals.
             </p>
             <p>
-              Our acoustic surfaces are made from recycled PET bottles, engineered to
-              absorb echo and carry the voice. Sustainable materials and acoustic
-              comfort are not an add-on here — they are where every project begins.
+              From PET panels pressed from recycled bottles to acoustic planning,
+              custom finishes and end-to-end delivery — every decision is made to
+              serve the way a room is used.
             </p>
           </Reveal>
           <Reveal delay={0.1} className="studio__pillars">
-            {PILLARS.map((p) => (
+            {KEY_CAPABILITIES.map((p) => (
               <span className="studio__pillar" key={p}>
                 {p}
               </span>

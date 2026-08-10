@@ -77,8 +77,8 @@ function Hero() {
         </Reveal>
         <Reveal delay={0.16}>
           <p className="page-hero__lede">
-            Made from recycled bottles. Quieting the room. Carrying the voice. And carrying
-            the brand.
+            Quieter, more comfortable workspaces — recycled PET panels that
+            reduce echo and improve speech clarity.
           </p>
         </Reveal>
       </motion.div>
@@ -103,6 +103,21 @@ function WhatIsPET() {
         </Reveal>
         <Reveal delay={0.16}>
           <p className="pet__body">{PET_NOTE}</p>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <ul className="pet__solutions">
+            {[
+              'PET acoustic panels',
+              'Acoustic baffles',
+              'Cloud ceilings',
+              'Acoustic screens',
+              'Custom acoustic solutions',
+              'Custom shapes',
+              'Custom finishes',
+            ].map((s) => (
+              <li key={s}>{s}</li>
+            ))}
+          </ul>
         </Reveal>
       </div>
     </section>
