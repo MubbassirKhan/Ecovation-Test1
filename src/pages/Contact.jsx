@@ -8,10 +8,12 @@ import usePageMeta from '../utils/usePageMeta';
 
 const PROJECT_TYPES = [
   'Workspace design',
+  'Residential interiors',
   'Acoustic panels',
   'Meeting rooms & acoustics',
   'Office fit-out',
   'Reception / brand environment',
+  'Home office / media room',
   'Something else',
 ];
 

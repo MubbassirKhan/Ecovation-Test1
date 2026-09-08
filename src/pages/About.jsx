@@ -36,9 +36,15 @@ export default function About() {
   return (
     <>
       <section className="page-hero about-hero">
-        <div className="about-hero__media" aria-hidden="true">
-          <img src={IMAGES.studio} alt="" loading="eager" decoding="async" />
-          <div className="about-hero__veil" aria-hidden="true" />
+        <div className="page-hero__media" aria-hidden="true">
+          <img
+            src={IMAGES.studio}
+            alt=""
+            loading="eager"
+            decoding="async"
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 35%' }}
+          />
+          <div className="page-hero__veil" aria-hidden="true" />
         </div>
         <div className="page-hero__inner container">
           <Reveal>
@@ -51,6 +57,12 @@ export default function About() {
             <h1 className="page-hero__title">
               Sustainable workspaces, <em>built on sound</em>.
             </h1>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <p className="page-hero__lede">
+              A Bangalore practice for sustainable interiors, acoustic fit-outs
+              and recycled PET panels — where every project starts with how the room sounds.
+            </p>
           </Reveal>
         </div>
       </section>

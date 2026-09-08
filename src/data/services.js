@@ -16,8 +16,17 @@ export const HOME_SERVICES = [
     to: '/workspaces',
   },
   {
-    id: 'acoustic-panels',
+    id: 'residential',
     index: '02',
+    title: 'Residential',
+    blurb:
+      'Acoustic comfort and sustainable interiors for homes — home offices, media rooms, living spaces and bedrooms designed for clarity and calm.',
+    image: IMAGES.collaboration,
+    to: '/residential',
+  },
+  {
+    id: 'acoustic-panels',
+    index: '03',
     title: 'Acoustic Panels',
     blurb:
       'PET acoustic panels and systems that reduce echo and improve speech clarity. Customizable forms and finishes for any interior style.',

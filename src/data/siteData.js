@@ -29,6 +29,7 @@ export const CONTACT = {
 export const NAVIGATION = [
   { label: 'Home', to: '/' },
   { label: 'Workspaces', to: '/workspaces' },
+  { label: 'Residential', to: '/residential' },
   { label: 'Acoustic Panels', to: '/acoustic-panels' },
   { label: 'Projects', to: '/projects' },
   { label: 'Contact', to: '/contact' },

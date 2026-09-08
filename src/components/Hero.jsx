@@ -1,33 +1,20 @@
 import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { IMAGES } from '../data/projects';
 import { onImgError } from '../utils/image';
-import usePageMeta from '../utils/usePageMeta';
 
 /**
- * Hero — Ecovation home hero (no logo — brand lives in the navbar only).
- * Full-bleed image with slow parallax exit (144% tall → drift within headroom),
- * headline, supporting statement, primary + secondary CTA.
+ * Hero — Ecovation home hero.
+ * Full-bleed image (normal flow, no position: fixed / sticky).
+ * Clean parallax on the image only via framer-motion scroll tracking.
  */
 export default function Hero() {
-  usePageMeta(
-    'Ecovation — Sustainable Workspaces & Acoustic Solutions, Bangalore',
-    'Ecovation designs and builds sustainable workspaces and acoustic interiors in Bangalore — offices, meeting rooms and collaboration zones with PET acoustic panels that quiet the room and carry the voice.',
-    IMAGES.hero
-  );
-
-  const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
-  // Background stays visually fixed (position: fixed in CSS) while the
-  // content scrolls normally; only a gentle opacity exit remains linked.
-  const fade = useTransform(scrollYProgress, [0, 0.78], [1, 0]);
-
   const words = ['Sustainable', 'Workspaces.'];
   const em = ['Thoughtful design, better acoustics.'];
 
   return (
-    <header className="hero" id="top" ref={heroRef}>
+    <header className="hero" id="top">
       <div className="hero__media">
         <img
           className="hero__img"
@@ -42,11 +29,16 @@ export default function Hero() {
         <div className="hero__veil" aria-hidden="true" />
       </div>
 
-      <motion.div className="hero__content" style={{ opacity: fade }}>
-        <p className="kicker hero__over">
+      <div className="hero__content">
+        <motion.p
+          className="kicker hero__over"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+        >
           <span className="kicker__dot" aria-hidden="true" />
           EcoVation — Sustainable Workplaces &amp; PET Panels
-        </p>
+        </motion.p>
 
         <h1 className="hero__title">
           {words.map((w, i) => (
@@ -89,11 +81,11 @@ export default function Hero() {
           <Link className="hero__cta" to="/contact">
             Start a project <span aria-hidden="true">→</span>
           </Link>
-          <a className="hero__cta hero__cta--ghost" href="#intro">
+          <a className="hero__cta hero__cta--ghost" href="#about">
             Explore <span aria-hidden="true">↓</span>
           </a>
         </motion.div>
-      </motion.div>
+      </div>
 
       <div className="hero__scroll" aria-hidden="true" />
     </header>
