@@ -187,13 +187,16 @@ function Clients() {
           </h2>
         </Reveal>
         <Reveal delay={0.14}>
-          <ul className="clients__list">
-            {CLIENTS.map((c) => (
-              <li className="clients__item" key={c}>
-                {c}
-              </li>
-            ))}
-          </ul>
+          <div className="clients__marquee" aria-label="Ecovation clients">
+            <div className="clients__track">
+              {[...CLIENTS, ...CLIENTS].map((c, i) => (
+                <div className="clients__item" key={`${c}-${i}`} aria-hidden={i >= CLIENTS.length}>
+                  <span className="clients__placeholder">Client logo</span>
+                  <strong>{c}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>

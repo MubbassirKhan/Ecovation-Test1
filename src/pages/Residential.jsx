@@ -16,7 +16,7 @@ const RESIDENTIAL_SOLUTIONS = [
     blurb:
       'Modern, comfortable and personalized living environments designed around how you and your family use the space.',
     notes: ['Acoustic comfort', 'Lighting design', 'Material selection'],
-    image: IMAGES.collaboration,
+    image: IMAGES.residentialLiving,
   },
   {
     id: 'bedrooms',
@@ -25,7 +25,7 @@ const RESIDENTIAL_SOLUTIONS = [
     blurb:
       'Calm, warm and acoustically comfortable private spaces that help you rest and recharge.',
     notes: ['Restful planning', 'Acoustic comfort', 'Warm materials'],
-    image: IMAGES.baffles,
+    image: IMAGES.residentialBedroom,
   },
   {
     id: 'home-offices',
@@ -34,7 +34,7 @@ const RESIDENTIAL_SOLUTIONS = [
     blurb:
       'Productive and acoustically optimized work-from-home environments with smart acoustic treatment and ergonomic planning.',
     notes: ['Acoustic treatment', 'Ergonomic planning', 'Professional lighting'],
-    image: IMAGES.openOffice,
+    image: IMAGES.residentialOffice,
   },
 ];
 

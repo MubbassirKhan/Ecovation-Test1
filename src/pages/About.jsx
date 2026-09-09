@@ -2,7 +2,7 @@ import Reveal from '../components/Reveal';
 import ParallaxImage from '../components/ParallaxImage';
 import CTASection from '../components/CTASection';
 import { IMAGES } from '../data/projects';
-import { CONTACT } from '../data/siteData';
+import { CONTACT, TEAM } from '../data/siteData';
 import usePageMeta from '../utils/usePageMeta';
 
 const VALUES = [
@@ -114,6 +114,32 @@ export default function About() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="team container">
+        <Reveal>
+          <p className="kicker">
+            <span className="kicker__dot" aria-hidden="true" />
+            The people
+          </p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <h2 className="team__title">Meet the <em>team</em>.</h2>
+        </Reveal>
+        <div className="team__grid">
+          {TEAM.map((member, i) => (
+            <Reveal className="team__member" key={member.name} delay={i * 0.08}>
+              <figure className="team__figure">
+                <img src={member.image} alt={member.name} loading="lazy" decoding="async" />
+              </figure>
+              <div className="team__info">
+                <p className="team__role">{member.role}</p>
+                <h3 className="team__name">{member.name}</h3>
+                <p className="team__bio">{member.bio}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 

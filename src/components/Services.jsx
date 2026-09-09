@@ -24,11 +24,8 @@ export default function Services() {
         <div className="services__list">
           {HOME_SERVICES.map((s, i) => (
             <Reveal key={s.id} delay={i * 0.04}>
-              <Link className="service" to={s.to}>
-                <span className="service__index" aria-hidden="true">
-                  {s.index}
-                </span>
-                <div>
+              <Link className={`service${i % 2 === 1 ? ' service--reverse' : ''}`} to={s.to}>
+                <div className="service__content">
                   <h3 className="service__title">{s.title}</h3>
                   <p className="service__blurb">{s.blurb}</p>
                 </div>

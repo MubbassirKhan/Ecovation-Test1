@@ -31,6 +31,7 @@ export const CONTACT = {
 
 export const NAVIGATION = [
   { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
   { label: 'Workspaces', to: '/workspaces' },
   { label: 'Residential', to: '/residential' },
   { label: 'Acoustic Panels', to: '/acoustic-panels' },
@@ -135,3 +136,18 @@ export const APPROACH_STEPS = [
 
 /** Real client/brand references — displayed as text wordmarks (no fake logos). */
 export const CLIENTS = ['ADT', 'Alphadyne', 'Enfinity', 'Sears', 'UKG'];
+
+export const TEAM = [
+  {
+    name: 'Sharukh',
+    role: 'Founder & Operations Head',
+    image: '/Ecovation%20Images/founder-sahruk.jpeg',
+    bio: 'Sharukh is the visionary backbone of Ecovation, shaping the company\'s execution ethos with foresight, discipline and a commitment to excellence. His hands-on operational mastery turns complex ideas into precisely delivered spaces.',
+  },
+  {
+    name: 'Nida',
+    role: 'Co-Founder & Business Development Head',
+    image: '/Ecovation%20Images/co-founder-nida.jpeg',
+    bio: 'Nida blends business insight with a natural flair for building meaningful client relationships. She transforms opportunities into long-term partnerships and helps ensure every project reflects Ecovation\'s elegance, precision and innovation.',
+  },
+];
