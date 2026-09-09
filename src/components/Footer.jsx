@@ -40,7 +40,7 @@ export default function Footer() {
           <div className="footer__column">
             <h2>Navigate</h2>
             <nav className="footer__links" aria-label="Footer">
-              {NAVIGATION.map((l) => <Link key={l.to} to={l.to}>{l.label}</Link>)}
+              {NAVIGATION.filter((l) => l.to).map((l) => <Link key={l.to} to={l.to}>{l.label}</Link>)}
             </nav>
           </div>
 

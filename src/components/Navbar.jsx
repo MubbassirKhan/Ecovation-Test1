@@ -16,6 +16,7 @@ const BURGER_EASE = [0.22, 1, 0.36, 1];
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const { scrollY, scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.3 });
@@ -35,29 +36,47 @@ export default function Navbar() {
   return (
     <>
       <header className={`nav${scrolled ? ' nav--scrolled' : ''}`}>
-        <Logo className="nav__brand" href="/" size={48} onClick={() => setOpen(false)} />
+        <div className="nav__container">
+          <Logo className="nav__brand" href="/" size={48} onClick={() => setOpen(false)} />
 
-        <nav className="nav__links" aria-label="Primary">
-          {NAVIGATION.map((l) => (
-            <Link key={l.to} to={l.to}>
-              {l.label}
-            </Link>
-          ))}
-        </nav>
+          <nav className="nav__links" aria-label="Primary">
+            {NAVIGATION.map((l) => (
+              l.submenu ? (
+                <div key={l.label} className="nav__dropdown">
+                  <button className="nav__dropdown-toggle">
+                    {l.label}
+                    <span className="nav__dropdown-arrow">›</span>
+                  </button>
+                  <div className="nav__dropdown-menu">
+                    {l.submenu.map((item) => (
+                      <Link key={item.to} to={item.to} className="nav__dropdown-link">
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link key={l.to} to={l.to}>
+                  {l.label}
+                </Link>
+              )
+            ))}
+          </nav>
 
-        <Link className="nav__cta" to="/contact">
-          Get a quote
-        </Link>
+          <Link className="nav__cta" to="/contact">
+            Get a quote
+          </Link>
 
-        <button
-          className="nav__burger"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span />
-          <span />
-        </button>
+          <button
+            className={`nav__burger${open ? ' nav__burger--active' : ''}`}
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span />
+            <span />
+          </button>
+        </div>
 
         <motion.div className="nav__progress" style={{ scaleX: progress }} aria-hidden="true" />
       </header>
@@ -71,29 +90,79 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.45, ease: BURGER_EASE }}
           >
-            {NAVIGATION.map((l, i) => (
-              <motion.div
-                key={l.to}
-                initial={{ opacity: 0, y: 34 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: BURGER_EASE, delay: 0.08 + i * 0.07 }}
+            <div className="nav__overlay-head">
+              <Logo className="nav__overlay-brand" href="/" size={42} onClick={() => setOpen(false)} />
+              <span>Menu</span>
+              <button
+                className="nav__overlay-close"
+                aria-label="Close menu"
+                onClick={() => setOpen(false)}
               >
-                <Link className="nav__overlay-link" to={l.to} onClick={() => setOpen(false)}>
-                  {l.label}
-                  <small>0{i + 1}</small>
-                </Link>
-              </motion.div>
+                <span />
+                <span />
+              </button>
+            </div>
+            {NAVIGATION.map((l, i) => (
+              l.submenu ? (
+                <div key={l.label}>
+                  <button
+                    className="nav__overlay-submenu-toggle"
+                    onClick={() => setDropdownOpen(dropdownOpen === l.label ? null : l.label)}
+                  >
+                    <motion.div
+                      initial={{ opacity: 0, y: 34 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, ease: BURGER_EASE, delay: 0.08 + i * 0.07 }}
+                      className="nav__overlay-link"
+                    >
+                      {l.label}
+                      <span className={`arrow ${dropdownOpen === l.label ? 'open' : ''}`}>›</span>
+                    </motion.div>
+                  </button>
+                  <AnimatePresence>
+                    {dropdownOpen === l.label && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {l.submenu.map((item, j) => (
+                          <motion.div
+                            key={item.to}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: j * 0.05 }}
+                          >
+                            <Link
+                              className="nav__overlay-submenu-link"
+                              to={item.to}
+                              onClick={() => {
+                                setOpen(false);
+                                setDropdownOpen(null);
+                              }}
+                            >
+                              {item.label}
+                            </Link>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <motion.div
+                  key={l.to}
+                  initial={{ opacity: 0, y: 34 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: BURGER_EASE, delay: 0.08 + i * 0.07 }}
+                >
+                  <Link className="nav__overlay-link" to={l.to} onClick={() => setOpen(false)}>
+                    {l.label}
+                  </Link>
+                </motion.div>
+              )
             ))}
-            <motion.div
-              className="nav__overlay-meta"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-            >
-              <a href={CONTACT.emailHref}>{CONTACT.email}</a>
-              <a href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</a>
-              <span>{CONTACT.address}</span>
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
