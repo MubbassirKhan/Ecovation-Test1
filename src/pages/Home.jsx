@@ -24,8 +24,8 @@ import usePageMeta from '../utils/usePageMeta';
  */
 export default function Home() {
   usePageMeta(
-    'Ecovation — Sustainable Workspaces & PET Acoustic Panels, Bangalore',
-    'Transforming modern workspaces with sustainable acoustic solutions. Custom PET panels and interior design built for comfort, clarity, and environmental responsibility — Bangalore.'
+    'Ecovation — Sustainable Interiors & PET Acoustic Solutions, Bengaluru',
+    'Ecovation combines sustainable materials, thoughtful interior design and acoustic innovation to create spaces that perform beautifully across India.'
   );
 
   return (

@@ -13,7 +13,7 @@ const PROJECT_TYPES = [
   'Meeting rooms & acoustics',
   'Office fit-out',
   'Reception / brand environment',
-  'Home office / media room',
+  'Home office',
   'Something else',
 ];
 
@@ -42,7 +42,7 @@ function validate(values) {
 export default function Contact() {
   usePageMeta(
     'Contact — Ecovation, Sustainable Workspaces & Acoustic Solutions',
-    'Start a project with Ecovation in Bangalore — workspace design, PET acoustic panels and office fit-outs. Call +91 95138 77866 or write to info@ecovation.co.in.'
+    'Start a project with Ecovation in Bengaluru. Call +91 95387 78892, WhatsApp us or write to info@ecovation.co.in.'
   );
 
   const [values, setValues] = useState(INITIAL);
@@ -113,6 +113,12 @@ export default function Contact() {
                 <span className="contact-detail__label">Phone</span>
                 <a className="contact-detail__value" href={CONTACT.phoneHref}>
                   {CONTACT.phoneDisplay}
+                </a>
+              </li>
+              <li className="contact-detail">
+                <span className="contact-detail__label">Also reachable</span>
+                <a className="contact-detail__value" href={CONTACT.secondaryPhoneHref}>
+                  {CONTACT.secondaryPhoneDisplay}
                 </a>
               </li>
               <li className="contact-detail">

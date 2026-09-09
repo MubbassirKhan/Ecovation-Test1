@@ -16,21 +16,20 @@ export default function Intro() {
       </Reveal>
       <Reveal delay={0.08}>
         <h2 className="intro__heading">
-          The office is the brand — quiet, calm, unmistakably <em>yours</em>.
+          Designing spaces that <em>work &amp; sound right</em>.
         </h2>
       </Reveal>
       <Reveal delay={0.16}>
         <div className="intro__body">
           <p>
-            EcoVation designs and builds workplaces in which sound is a material.
-            Across open floors, meeting rooms and reception, we plan generous, honest
-            spaces — then tune them with PET acoustic panels and absorptive surfaces
-            until the room feels settled: echo gone, voices clear, focus effortless.
+            Ecovation combines sustainable materials, thoughtful interior design and
+            acoustic innovation to create spaces that perform beautifully — improving
+            comfort, productivity, acoustic performance and sustainability.
           </p>
           <p>
-            Every project is made from sustainable materials, drawn close to the way
-            a team actually works, and finished with enough care that the space
-            still speaks for the brand long after the handover.
+            From turnkey interiors and PET acoustic panels to CNC cutting, printed
+            panels and ceiling solutions, Ecovation delivers considered spaces for
+            businesses and homeowners.
           </p>
         </div>
       </Reveal>

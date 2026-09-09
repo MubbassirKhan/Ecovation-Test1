@@ -15,8 +15,8 @@ import usePageMeta from '../utils/usePageMeta';
  */
 export default function Workspaces() {
   usePageMeta(
-    'Workspaces — Ecovation, Sustainable Workspace Design in Bangalore',
-    'Ecovation designs and delivers modern workspaces that combine thoughtful interior planning, sustainable materials, acoustic comfort and premium finishes — in Bangalore.'
+    'Workspaces — Ecovation, Sustainable Workspace Design in Bengaluru',
+    'Sustainable workplace design and fit-outs that improve productivity, comfort and brand experience through smart space planning and acoustic solutions.'
   );
 
   return (
@@ -71,14 +71,13 @@ function Hero() {
         </Reveal>
         <Reveal delay={0.08}>
           <h1 className="page-hero__title">
-            Sustainable workspace design <em>&amp; interiors</em>.
+            Modern <em>workspaces</em>.
           </h1>
         </Reveal>
         <Reveal delay={0.16}>
           <p className="page-hero__lede">
-            Ecovation designs and delivers modern workspaces that combine thoughtful
-            interior planning, sustainable materials, acoustic comfort, and premium
-            finishes.
+            Sustainable workplace design and fit-outs with smart space planning,
+            ergonomic layouts and acoustic comfort.
           </p>
         </Reveal>
       </motion.div>
@@ -111,14 +110,13 @@ function PhilosophySection() {
           <Reveal delay={0.16}>
             <div className="ws-philosophy__body">
               <p>
-                Every workspace we deliver is planned so the room works as hard as
-                the people in it — ergonomic flow, natural comfort, and acoustic
-                balance baked in from the first drawing.
+                Ecovation designs modern workspaces with smart space planning,
+                ergonomic layouts and acoustic comfort for focus, collaboration and
+                well-being.
               </p>
               <p>
-                Sustainable materials and premium finishes come together as one
-                system, so the space performs, endures, and strengthens the brand
-                that works within it.
+                Sustainable materials and acoustic solutions support productivity,
+                comfort and the brand experience.
               </p>
             </div>
           </Reveal>
@@ -146,7 +144,7 @@ function FocusList() {
           </p>
         </Reveal>
         <Reveal delay={0.08}>
-          <h2 className="focus__title">The complete workspace, one system.</h2>
+          <h2 className="focus__title">Workspace solutions, zone by zone.</h2>
         </Reveal>
       </div>
 
@@ -199,14 +197,12 @@ function SustainableSection() {
         <Reveal delay={0.16}>
           <div className="ws-sustainable__body">
             <p>
-              PET acoustic panels are pressed from recycled bottles into
-              sound-absorbing boards: light, rigid, fire-safe and finished to
-              your specification. The sustainability is not a label on the wall —
-              it quiets the room.
+              Ecovation uses sustainable materials with 75% recycled content to
+              reduce environmental impact while supporting acoustic comfort.
             </p>
             <p>
-              Finishes are chosen to be honest, durable and kind to the environment,
-              so the workspace you build is the workspace that lasts.
+              The service covers discovery, space planning, design development,
+              3D visualisation, execution and handover.
             </p>
           </div>
         </Reveal>

@@ -3,7 +3,13 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Reveal from '../components/Reveal';
 import ParallaxImage from '../components/ParallaxImage';
 import CTASection from '../components/CTASection';
-import { ACOUSTIC_SOLUTIONS, ACOUSTIC_BENEFITS, PET_NOTE } from '../data/services';
+import {
+  ACOUSTIC_SOLUTIONS,
+  ACOUSTIC_BENEFITS,
+  PANEL_APPLICATIONS,
+  PANEL_SPECS,
+  PET_NOTE,
+} from '../data/services';
 import { IMAGES } from '../data/projects';
 import { CONTACT } from '../data/siteData';
 import { onImgError } from '../utils/image';
@@ -16,8 +22,8 @@ import usePageMeta from '../utils/usePageMeta';
  */
 export default function AcousticPanels() {
   usePageMeta(
-    'PET Acoustic Panels — Ecovation Acoustic Solutions, Bangalore',
-    'PET acoustic panels, acoustic baffles, cloud ceilings and acoustic screens in Bangalore — sustainable materials from recycled bottles that reduce echo, improve speech clarity and add visual character.'
+    'PET Acoustic Panels — Ecovation Acoustic Solutions, Bengaluru',
+    'Advanced sound solutions made from recycled PET materials, with 120+ colours, customizable fabrication and acoustic applications for workplaces, studios, hospitality and homes.'
   );
 
   return (
@@ -26,6 +32,7 @@ export default function AcousticPanels() {
       <WhatIsPET />
       <Products />
       <Benefits />
+      <PanelDetails />
       <CTASection
         kicker="Get a quote"
         heading="Quiet the room. Carry the voice. Make it yours."
@@ -77,8 +84,8 @@ function Hero() {
         </Reveal>
         <Reveal delay={0.16}>
           <p className="page-hero__lede">
-            Quieter, more comfortable workspaces — recycled PET panels that
-            reduce echo and improve speech clarity.
+            Advanced sound solutions made from recycled PET materials for
+            superior acoustic performance and sustainable interior design.
           </p>
         </Reveal>
       </motion.div>
@@ -107,13 +114,12 @@ function WhatIsPET() {
         <Reveal delay={0.2}>
           <ul className="pet__solutions">
             {[
-              'PET acoustic panels',
               'Acoustic baffles',
-              'Cloud ceilings',
+              'Cell ceiling systems',
+              'CNC cut panels',
               'Acoustic screens',
-              'Custom acoustic solutions',
-              'Custom shapes',
-              'Custom finishes',
+              'Acoustic clouds',
+              'Printed panels',
             ].map((s) => (
               <li key={s}>{s}</li>
             ))}
@@ -193,6 +199,47 @@ function Benefits() {
               <p className="ac-benefits__card-body">{b.body}</p>
             </Reveal>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PanelDetails() {
+  return (
+    <section className="ac-benefits">
+      <div className="container">
+        <Reveal>
+          <p className="kicker">
+            <span className="kicker__dot" aria-hidden="true" />
+            Product data
+          </p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <h2 className="ac-benefits__title">Made for performance and flexibility</h2>
+        </Reveal>
+        <div className="ac-benefits__grid">
+          <Reveal className="ac-benefits__card">
+            <span className="ac-benefits__num" aria-hidden="true">01</span>
+            <h3 className="ac-benefits__card-title">Product specifications</h3>
+            <ul className="ac-product__notes">
+              {PANEL_SPECS.map((spec) => <li key={spec}>{spec}</li>)}
+            </ul>
+          </Reveal>
+          <Reveal className="ac-benefits__card" delay={0.08}>
+            <span className="ac-benefits__num" aria-hidden="true">02</span>
+            <h3 className="ac-benefits__card-title">Perfect for every space</h3>
+            <ul className="ac-product__notes">
+              {PANEL_APPLICATIONS.map((application) => <li key={application}>{application}</li>)}
+            </ul>
+          </Reveal>
+          <Reveal className="ac-benefits__card" delay={0.16}>
+            <span className="ac-benefits__num" aria-hidden="true">03</span>
+            <h3 className="ac-benefits__card-title">Fully customizable</h3>
+            <p className="ac-benefits__card-body">
+              120+ colours, CNC cutting, printed graphics, custom sizes, integrated lighting and installation across walls, ceilings, baffles and screens.
+            </p>
+          </Reveal>
         </div>
       </div>
     </section>

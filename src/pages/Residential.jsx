@@ -10,40 +10,31 @@ import usePageMeta from '../utils/usePageMeta';
 
 const RESIDENTIAL_SOLUTIONS = [
   {
-    id: 'home-office',
+    id: 'living-rooms',
     index: '01',
-    title: 'Home Office',
+    title: 'Living Rooms',
     blurb:
-      'A focused, acoustic-balanced home office — designed for calls, deep work and the daily rhythm of working from home.',
-    notes: ['Acoustic panels', 'Ergonomic layout', 'Cable & lighting design'],
-    image: IMAGES.openOffice,
-  },
-  {
-    id: 'media-room',
-    index: '02',
-    title: 'Media Room',
-    blurb:
-      'Immersive home cinema and listening rooms with acoustic treatment that keeps every sound in its right place.',
-    notes: ['Bass management', 'PET acoustic panels', 'Blackout & lighting'],
-    image: IMAGES.studio,
-  },
-  {
-    id: 'living-room',
-    index: '03',
-    title: 'Living & Dining',
-    blurb:
-      'Open-plan living areas where conversation stays clear and music sounds like it should — without the echo.',
-    notes: ['Echo control', 'Aesthetic panels', 'Custom finishes'],
+      'Modern, comfortable and personalized living environments designed around how you and your family use the space.',
+    notes: ['Acoustic comfort', 'Lighting design', 'Material selection'],
     image: IMAGES.collaboration,
   },
   {
-    id: 'bedroom',
-    index: '04',
-    title: 'Bedroom & Study',
+    id: 'bedrooms',
+    index: '02',
+    title: 'Bedrooms',
     blurb:
-      'Calm, quiet rooms that support sleep, focus and rest — acoustic comfort as standard, not an afterthought.',
-    notes: ['Sound isolation', 'Soft materials', 'Warm finishes'],
+      'Calm, warm and acoustically comfortable private spaces that help you rest and recharge.',
+    notes: ['Restful planning', 'Acoustic comfort', 'Warm materials'],
     image: IMAGES.baffles,
+  },
+  {
+    id: 'home-offices',
+    index: '03',
+    title: 'Home Offices',
+    blurb:
+      'Productive and acoustically optimized work-from-home environments with smart acoustic treatment and ergonomic planning.',
+    notes: ['Acoustic treatment', 'Ergonomic planning', 'Professional lighting'],
+    image: IMAGES.openOffice,
   },
 ];
 
@@ -88,8 +79,8 @@ const PROCESS = [
  */
 export default function Residential() {
   usePageMeta(
-    'Residential Interiors — Ecovation Acoustic Solutions, Bangalore',
-    'Sustainable acoustic interiors for homes in Bangalore — home offices, media rooms, living spaces and bedrooms designed for clarity, calm and comfort using recycled PET acoustic panels.'
+    'Residential Interiors — Ecovation Acoustic Solutions, Bengaluru',
+    'Thoughtfully designed residential interiors that combine aesthetics, comfort, sustainability and acoustic performance.'
   );
 
   return (
@@ -146,14 +137,13 @@ function HeroSection() {
         </Reveal>
         <Reveal delay={0.08}>
           <h1 className="page-hero__title">
-            Acoustic comfort,{' '}
-            <em>at home</em>.
+            Residential interiors <em>designed around you</em>.
           </h1>
         </Reveal>
         <Reveal delay={0.16}>
           <p className="page-hero__lede">
-            Sustainable acoustic interiors for homes — designed around how you
-            live, work, listen and rest.
+            From living spaces to bedrooms and home offices, Ecovation creates
+            interiors around how you and your family use the space.
           </p>
         </Reveal>
       </motion.div>
@@ -181,16 +171,13 @@ function IntroSection() {
           </Reveal>
           <Reveal delay={0.16} className="rs-intro__body">
             <p>
-              Hard floors, high ceilings and open plans are as acoustically
-              demanding at home as they are in the office. Echo, flutter and
-              reverberation wear on the people inside — in every call, film
-              night and conversation.
+              Ecovation creates residential interiors that combine aesthetics,
+              comfort, sustainability and acoustic performance.
             </p>
             <p>
-              Ecovation brings the same recycled PET panels, the same material
-              discipline and the same design rigour that transforms commercial
-              interiors into residential spaces that simply sound better — and
-              look it, too.
+              Each room is designed around lifestyle, with acoustic comfort,
+              lighting design and material selection refined to the way the home
+              is used.
             </p>
           </Reveal>
         </div>

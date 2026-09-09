@@ -30,7 +30,7 @@ const VALUES = [
 export default function About() {
   usePageMeta(
     'About — Ecovation, Sustainable Workspaces & Acoustic Solutions',
-    'Ecovation is a Bangalore studio for sustainable workspaces and acoustic interiors — better workplaces through material-conscious design, acoustic comfort and people-first planning.'
+    'Ecovation combines sustainable materials, thoughtful interior design and acoustic innovation to create spaces that perform beautifully across India.'
   );
 
   return (
@@ -55,13 +55,13 @@ export default function About() {
           </Reveal>
           <Reveal delay={0.08}>
             <h1 className="page-hero__title">
-              Sustainable workspaces, <em>built on sound</em>.
+              Designing <em>better spaces</em>.
             </h1>
           </Reveal>
           <Reveal delay={0.16}>
             <p className="page-hero__lede">
-              A Bangalore practice for sustainable interiors, acoustic fit-outs
-              and recycled PET panels — where every project starts with how the room sounds.
+              Sustainable materials, intelligent design and precision execution
+              for modern Indian interiors.
             </p>
           </Reveal>
         </div>
@@ -76,29 +76,25 @@ export default function About() {
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="story__heading">
-            We make workplaces where people work better — by starting with how the room sounds.
+            Sustainable interiors that improve comfort, productivity and well-being.
           </h2>
         </Reveal>
         <Reveal delay={0.16}>
           <div className="story__body">
             <p>
-              EcoVation is a Bangalore-based practice for sustainable workspaces,
-              interior fit-outs and PET acoustic panels. We plan offices, meeting
-              rooms, collaboration zones and reception areas around two convictions:
-              that a workplace should leave people calm and focused, and that the
-              materials that achieve this can be genuinely sustainable.
+              Ecovation combines sustainable materials, thoughtful interior design
+              and acoustic innovation to create spaces that perform beautifully.
             </p>
             <p>
-              Sound is where these two meet. Hard rooms exhaust people — echo stacks
-              the noise, hides the voice and wears out the room. Our acoustic surfaces,
-              made from recycled PET, absorb that reflection and return clarity: speech
-              lands clean, meetings feel lighter, focus comes back. Sustainable materials
-              and acoustic comfort are not an add-on here — they are where every project begins.
+              Our mission is to transform modern interiors through sustainable
+              materials, intelligent design and precision execution - creating
+              environments that improve comfort, productivity, acoustic performance
+              and well-being.
             </p>
             <p>
-              From a single meeting room to a full office fit-out, we work closely,
-              draw from how the team actually works, and finish with the care that
-              lets a space still speak for its brand years later.
+              Our vision is to make sustainable, high-performance interior solutions
+              accessible to businesses and homeowners, establishing recycled
+              materials as the standard for modern Indian interiors.
             </p>
           </div>
         </Reveal>

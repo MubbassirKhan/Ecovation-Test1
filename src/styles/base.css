@@ -368,8 +368,9 @@ button {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(13, 12, 11, 0.55) 0%, rgba(13, 12, 11, 0.12) 34%, rgba(13, 12, 11, 0.08) 55%, rgba(13, 12, 11, 0.66) 100%),
-    radial-gradient(120% 90% at 50% 40%, transparent 40%, rgba(13, 12, 11, 0.42) 100%);
+    linear-gradient(90deg, rgba(13, 12, 11, 0.84) 0%, rgba(13, 12, 11, 0.5) 40%, rgba(13, 12, 11, 0.1) 78%),
+    linear-gradient(180deg, rgba(13, 12, 11, 0.62) 0%, rgba(13, 12, 11, 0.04) 46%, rgba(13, 12, 11, 0.72) 100%),
+    radial-gradient(100% 100% at 50% 45%, transparent 38%, rgba(13, 12, 11, 0.4) 100%);
 }
 
 .hero__content {
@@ -378,52 +379,114 @@ button {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  text-align: center;
-  padding: 0 clamp(1.4rem, 6vw, 6rem) 16vh;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding: clamp(7rem, 14vh, 10rem) 0 clamp(3rem, 8vh, 5rem);
   will-change: transform, opacity;
 }
 
 .hero__over {
-  margin-bottom: 1.9rem;
+  margin-bottom: 1.65rem;
   color: #e8ddd0;
+  justify-content: flex-start;
+  text-align: left;
 }
 
 .hero__title {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(2.9rem, 7vw, 6rem);
-  line-height: 1.04;
+  font-size: clamp(3.5rem, 6.7vw, 6.6rem);
+  line-height: 0.9;
   letter-spacing: -0.01em;
   color: var(--ink);
-  text-wrap: balance;
+  text-wrap: pretty;
+  max-width: 16ch;
 }
 
 .hero__title .hero__line {
-  display: inline-block;
+  display: block;
 }
 
 .hero__title em {
+  display: block;
+  margin-top: 0.35em;
   font-style: italic;
   font-weight: 400;
   color: #e6d3b3;
 }
 
+.hero__em-line {
+  display: block;
+  white-space: nowrap;
+}
+
 .hero__sub {
-  margin-top: 1.6rem;
-  font-size: clamp(0.85rem, 1.3vw, 1rem);
-  letter-spacing: 0.08em;
+  margin-top: 1.8rem;
+  font-size: clamp(0.85rem, 1.1vw, 0.98rem);
+  letter-spacing: 0.04em;
   color: var(--ink-2);
-  max-width: 34ch;
+  max-width: 43ch;
 }
 
 .hero__ctas {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.9rem;
-  margin-top: 2.6rem;
+  margin-top: 2.2rem;
+}
+
+.hero__aside {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: min(20rem, 25vw);
+  transform: translateY(-42%);
+  padding: 1.2rem 0 1.35rem 1.5rem;
+  border-block: 1px solid rgba(244, 239, 230, 0.26);
+  border-left: 1px solid rgba(244, 239, 230, 0.26);
+  color: rgba(244, 239, 230, 0.82);
+}
+
+.hero__aside-label {
+  color: var(--brass);
+  font: 500 0.62rem/1.2 var(--font-sans);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero__aside-copy {
+  margin-top: 0.85rem;
+  max-width: 25ch;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.hero__aside-stats {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(244, 239, 230, 0.16);
+  font: 500 0.62rem/1.2 var(--font-sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero__aside-stats span {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.hero__aside-stats strong {
+  color: var(--ink);
+  font: 500 1.25rem/1 var(--font-display);
+  letter-spacing: 0;
 }
 
 .hero__cta {
@@ -456,6 +519,45 @@ button {
 .hero__cta:hover span {
   transform: translateY(4px);
   color: var(--bg);
+}
+
+.hero__cta--primary {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: var(--bg);
+}
+
+.hero__cta--primary span {
+  color: var(--bg);
+}
+
+.hero__cta--primary:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.hero__rail {
+  position: absolute;
+  right: 0;
+  bottom: 2.8rem;
+  display: flex;
+  gap: clamp(1rem, 3vw, 3.5rem);
+  padding-top: 1rem;
+  border-top: 1px solid rgba(244, 239, 230, 0.28);
+  color: rgba(244, 239, 230, 0.78);
+  font: 500 0.62rem/1.2 var(--font-sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .hero__aside {
+    display: none;
+  }
+
+  .hero__em-line {
+    white-space: normal;
+  }
 }
 
 .hero__scroll {
@@ -3602,4 +3704,4 @@ a.contact-detail__value:hover {
   .rs-why__card:last-child {
     border-bottom: none;
   }
-}
+}

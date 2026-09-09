@@ -20,7 +20,7 @@ const FILTERS = [
  */
 export default function ProjectsPage() {
   usePageMeta(
-    'Featured Projects — Ecovation Workspaces & Acoustic Interiors, Bangalore',
+    'Featured Projects — Ecovation Workspaces & Acoustic Interiors, Bengaluru',
     'Featured workspace and acoustic projects by Ecovation — open offices, meeting rooms, collaboration zones, receptions and breakout spaces.'
   );
 

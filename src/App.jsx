@@ -7,6 +7,7 @@ import AcousticPanels from './pages/AcousticPanels';
 import ProjectsPage from './pages/Projects';
 import ProjectDetails from './pages/ProjectDetails';
 import Contact from './pages/Contact';
+import About from './pages/About';
 import NotFound from './pages/NotFound';
 
 /**
@@ -18,14 +19,14 @@ import NotFound from './pages/NotFound';
  *   /projects          Featured projects
  *   /projects/:slug    Project detail
  *   /contact           Real contact details + enquiry form
- *   /about             Legacy — now redirects to Home.
+ *   /about             Company story, mission and values
  */
 export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="about" element={<Navigate to="/" replace />} />
+        <Route path="about" element={<About />} />
         <Route path="workspaces" element={<Workspaces />} />
         <Route path="residential" element={<Residential />} />
         <Route path="acoustic-panels" element={<AcousticPanels />} />

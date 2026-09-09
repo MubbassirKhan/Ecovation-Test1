@@ -7,22 +7,25 @@
 export const SITE = {
   name: 'Ecovation',
   legalName: 'Ecovation Interiors',
-  city: 'Bangalore',
+  city: 'Bengaluru',
   country: 'India',
   domain: 'https://ecovation.co.in',
-  tagline: 'Sustainable Interiors & Acoustics',
+  tagline: 'Sustainable Interiors & PET Acoustic Solutions',
   description:
-    'Transforming modern workspaces with sustainable acoustic solutions. Custom PET panels and interior design built for comfort, clarity, and environmental responsibility.',
+    'Ecovation combines sustainable materials, thoughtful interior design and acoustic innovation to create spaces that perform beautifully across India.',
 };
 
 export const CONTACT = {
-  phoneDisplay: '+91 9513877866',
-  phoneHref: 'tel:+919513877866',
+  phoneDisplay: '+91 95387 78892',
+  phoneHref: 'tel:+919538778892',
+  secondaryPhoneDisplay: '+91 95138 77866',
+  secondaryPhoneHref: 'tel:+919513877866',
+  whatsappHref: 'https://wa.me/919538778892',
   email: 'info@ecovation.co.in',
   emailHref: 'mailto:info@ecovation.co.in',
-  addressLine1: 'Unit No, B/19/01, Nagasandra Tumkur Road',
-  addressLine2: 'Bangalore — 560073',
-  address: 'Unit No, B/19/01, Nagasandra Tumkur Road, Bangalore — 560073',
+  addressLine1: 'Building No. #651, Agumbe, Arpitha Narayan Studio',
+  addressLine2: '650, 10th A Cross Road, West of Chord Road, 2nd Stage, 4th B Main, Stage 2, Mahalakshmi Layout, Bengaluru - 560082',
+  address: 'Building No. #651, Agumbe, Arpitha Narayan Studio, 650, 10th A Cross Road, West of Chord Road, 2nd Stage, 4th B Main, Stage 2, Mahalakshmi Layout, Bengaluru - 560082',
   region: 'Karnataka, India',
 };
 
@@ -47,7 +50,7 @@ export const MARQUEE_WORDS = [
 export const LOGO = {
   /** Official logo mark — the client's own asset, never modified. */
   src: '/images/logo.png',
-  alt: 'Ecovation — sustainable workspaces & PET acoustic panels, Bangalore',
+  alt: 'Ecovation — sustainable interiors and PET acoustic solutions, Bengaluru',
 };
 
 /* ------------------------------------------------------------
@@ -55,62 +58,78 @@ export const LOGO = {
    ------------------------------------------------------------ */
 
 export const HIGHLIGHTS = [
-  { value: '38+', label: 'Years Experience' },
+  { value: '15+', label: 'Years Experience' },
   { value: '200+', label: 'Projects Delivered' },
-  { value: '67', label: 'Panel Color Options' },
+  { value: '120+', label: 'Panel Colors' },
+  { value: '100%', label: 'Recycled PET' },
 ];
 
 export const KEY_CAPABILITIES = [
-  'Recycled PET Materials',
-  'Acoustic Planning',
-  'Custom Finishes',
-  'End-to-End Delivery',
+  'Sustainable Materials',
+  'Acoustic Innovation',
+  'Turnkey Execution',
+  'Custom Fabrication',
 ];
 
 export const MISSION_VISION = [
   {
     tag: 'Mission',
-    text: 'To deliver sustainable, acoustically comfortable interiors that improve the way people work and live.',
+    text: 'To transform modern interiors through sustainable materials, intelligent design and precision execution - creating spaces that improve comfort, productivity, acoustic performance and well-being.',
   },
   {
     tag: 'Vision',
-    text: 'To make circular materials and responsible design the standard for modern interiors across India.',
+    text: 'To make sustainable, high-performance interior solutions accessible to businesses and homeowners - establishing recycled materials as the standard for modern Indian interiors.',
   },
 ];
 
 export const WHY_CHOOSE = [
   {
     index: '01',
-    title: 'Designed for performance',
-    body: 'Layouts and finishes planned for comfort, productivity, and acoustic balance.',
+    title: 'Sustainability first',
+    body: 'Every material choice reflects a commitment to responsible sourcing and circular economy principles.',
   },
   {
     index: '02',
-    title: 'Material responsibility',
-    body: 'Recycled-material solutions that support sustainability goals without sacrificing quality.',
+    title: 'Acoustic expertise',
+    body: 'Acoustic performance, NRC ratings and sound-aware planning shape every solution.',
   },
   {
     index: '03',
-    title: 'End-to-end delivery',
-    body: 'From planning and visualization to execution and handover — one accountable team.',
+    title: 'Execution discipline',
+    body: 'On-site coordination, quality checks and accountable delivery on every project.',
   },
 ];
 
 export const APPROACH_STEPS = [
   {
     index: '01',
-    title: 'Consultation',
-    body: 'We align on goals, scope, timelines, and budget — then map the best approach.',
+    title: 'Discovery',
+    body: 'Understand goals, headcount, workflows, and constraints.',
   },
   {
     index: '02',
-    title: 'Design & Visualization',
-    body: 'Space planning, material selection, and 3D views so you can approve with confidence.',
+    title: 'Space Planning',
+    body: 'Layouts that optimise flow, collaboration, and focus.',
   },
   {
     index: '03',
-    title: 'Execution & Handover',
-    body: 'On-site coordination, quality checks, and a clean handover with support.',
+    title: 'Design Development',
+    body: 'Materials, finishes, lighting, and acoustic comfort details.',
+  },
+  {
+    index: '04',
+    title: '3D & Visualization',
+    body: 'Preview the look and feel before execution begins.',
+  },
+  {
+    index: '05',
+    title: 'Execution',
+    body: 'On-site coordination with quality checks and timelines.',
+  },
+  {
+    index: '06',
+    title: 'Handover',
+    body: 'Final walkthrough, documentation, and support.',
   },
 ];
 

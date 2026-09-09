@@ -35,16 +35,15 @@ export const PROJECTS = [
     slug: 'open-office',
     title: 'Open Office',
     category: 'Workspaces',
-    location: 'Bangalore',
+    location: 'Ecovation portfolio',
     year: '—',
     area: '—',
     disciplines: ['Open-plan design', 'Acoustic planning', 'Fit-out'],
-    summary:
-      'An open floor tuned for focus — daylight, calm materials and acoustic surfaces that keep the openness without the echo.',
+    summary: 'Open office environments planned for productive, comfortable and acoustically balanced work.',
     description:
-      'A flexible open-plan environment planned around natural light, movement and acoustic comfort. Ceiling and wall surfaces carry PET acoustic panels, with quiet and collaboration zones shaping how the room is used across the day.',
+      'Open office environments are one of Ecovation\'s featured workspace typologies, supported by smart space planning and acoustic solutions.',
     approach:
-      'The plan follows how the team works — flow first, walls second. Acoustic panels do the architectural work: baffles above the desks and panels wherever the voice travels.',
+      'Ecovation approaches open office areas through space planning, acoustic comfort and sustainable materials.',
     heroImage: u('photo-1497366216548-37526070297c', 2200),
     gallery: [
       u('photo-1497366754035-f200968a6e72', 1600),
@@ -58,16 +57,15 @@ export const PROJECTS = [
     slug: 'meeting-room',
     title: 'Meeting Room',
     category: 'Acoustics',
-    location: 'Bangalore',
+    location: 'Ecovation portfolio',
     year: '—',
     area: '—',
     disciplines: ['Meeting rooms', 'Acoustic panels', 'Ceiling clouds'],
-    summary:
-      'Rooms where every word lands — panel-wrapped walls and ceiling clouds tuned for speech clarity.',
+    summary: 'Meeting rooms designed for clear speech, privacy and a premium client experience.',
     description:
-      'Meeting rooms designed around one idea — that the room should disappear and leave the conversation. PET panels absorb early reflection, carpets kill footfall noise, and light is warm, even and glare-free.',
+      'Meeting rooms are a featured Ecovation workspace solution, with planning focused on clear speech, privacy and acoustic comfort.',
     approach:
-      'Each room is tuned for how it is used: presentation and debate in the boardroom, clear calls in the huddle rooms. Absorption sits on the walls that talk back, so voices carry without shouting.',
+      'The live offering describes meeting rooms as spaces for clear speech, privacy and a premium client experience.',
     heroImage: u('photo-1517245386807-bb43f82c33c4', 2200),
     gallery: [
       u('photo-1542744173-8e7e53415bb0', 1600),
@@ -81,16 +79,15 @@ export const PROJECTS = [
     slug: 'collaboration-zone',
     title: 'Collaboration Zone',
     category: 'Workspaces',
-    location: 'Bangalore',
+    location: 'Ecovation portfolio',
     year: '—',
     area: '—',
     disciplines: ['Collaboration zones', 'Acoustic screens', 'Furniture'],
-    summary:
-      'A workshop-style zone with acoustic screens that divide space without building walls.',
+    summary: 'Collaborative spaces designed to foster teamwork while maintaining acoustic comfort.',
     description:
-      'A collaboration zone that borrows the relaxed logic of a café — people gather, pair off, and settle in. Movable acoustic screens shape smaller rooms inside the bigger one.',
+      'Collaboration zones are part of Ecovation\'s workspace solutions, balancing teamwork with acoustic comfort.',
     approach:
-      'The brief is a place where ideas survive — surfaces to draw on, walls to write on, and quiet corners to think. Acoustic screens are the quiet walls, keeping energy in and sound out.',
+      'Ecovation uses smart space planning and acoustic solutions to support collaboration and well-being.',
     heroImage: u('photo-1522071820081-009f0129c71c', 2200),
     gallery: [
       u('photo-1521737604893-d14cc237f11d', 1600),
@@ -104,16 +101,15 @@ export const PROJECTS = [
     slug: 'reception',
     title: 'Reception',
     category: 'Workspaces',
-    location: 'Bangalore',
+    location: 'Ecovation portfolio',
     year: '—',
     area: '—',
     disciplines: ['Reception areas', 'Brand presence', 'Acoustic panels'],
-    summary:
-      'A calm, panel-lined arrival that carries the brand in the first ten seconds.',
+    summary: 'Reception and lobby environments designed to reflect brand identity from the first impression.',
     description:
-      'A reception that carries the company identity in material rather than logo — a sculpted acoustic wall at the threshold, warm light on the desk, and a lounge that absorbs the noise of arrival.',
+      'Reception and lobby environments are designed around brand identity, spatial flow and acoustic comfort.',
     approach:
-      'First impressions are acoustic as much as visual. The wall behind reception is a PET acoustic surface — quiet where it must be — and everything else steps back to let it speak.',
+      'Ecovation identifies reception and lobby spaces as a core workspace application.',
     heroImage: u('photo-1497215728101-856f4ea42174', 2200),
     gallery: [
       u('photo-1560179707-f14e90ef3623', 1600),
@@ -127,16 +123,15 @@ export const PROJECTS = [
     slug: 'breakout-space',
     title: 'Breakout Space',
     category: 'Acoustics',
-    location: 'Bangalore',
+    location: 'Ecovation portfolio',
     year: '—',
     area: '—',
     disciplines: ['Breakout spaces', 'Soft seating', 'Acoustic panels'],
-    summary:
-      'Relaxed corners to pause — soft surfaces and acoustic panels that keep the break comfortable and the noise down.',
+    summary: 'Breakout spaces designed for quick resets, creative ideas and comfortable acoustics.',
     description:
-      'Breakout spaces designed as a genuine rest from the work floor. Soft seating, warm materials and PET acoustic panels absorb the chatter so the room stays calm.',
+      'Breakout spaces are a featured workspace solution for relaxed resets and creative ideas.',
     approach:
-      'A break should sound like a break. Panel-backed seating nooks and absorptive ceilings keep energy high and decibels low.',
+      'The offering combines space planning with acoustic solutions to support comfort and collaboration.',
     heroImage: u('photo-1560250097-0b93528c311a', 2200),
     gallery: [
       u('photo-1497366754035-f200968a6e72', 1600),
@@ -150,16 +145,15 @@ export const PROJECTS = [
     slug: 'workspace-interior',
     title: 'Workspace Interior',
     category: 'Workspaces',
-    location: 'Bangalore',
+    location: 'Ecovation portfolio',
     year: '—',
     area: '—',
     disciplines: ['Interior design', 'Sustainable materials', 'Custom finishes'],
-    summary:
-      'Complete interior planning — sustainable materials, custom finishes and acoustic comfort designed as one system.',
+    summary: 'Modern workspace design and fit-outs that improve productivity, comfort and brand experience.',
     description:
-      'A full workspace interior where the brief, the material and the room meet. Recycled PET surfaces, honest finishes and careful planning make the space feel settled from the first step in.',
+      'Ecovation provides sustainable workplace design and fit-outs with smart space planning, ergonomic layouts and acoustic comfort.',
     approach:
-      'Good interiors begin with the room, not the look. Material selection, acoustic planning and custom finishes are drawn together so the space performs and endures.',
+      'The live workspace service covers discovery, space planning, design development, 3D visualisation, execution and handover.',
     heroImage: u('photo-1519389950473-47ba0277781c', 2200),
     gallery: [
       u('photo-1522071820081-009f0129c71c', 1600),

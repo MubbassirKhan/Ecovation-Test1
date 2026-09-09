@@ -37,7 +37,7 @@ export default function Studio() {
             onError={onImgError}
           />
           <span className="studio__label" aria-hidden="true">
-            © EcoVation — Bangalore
+            © Ecovation — Bengaluru
           </span>
         </motion.figure>
 
@@ -55,14 +55,13 @@ export default function Studio() {
           </Reveal>
           <Reveal delay={0.16} className="studio__body">
             <p>
-              Ecovation transforms interiors through thoughtful design,
-              recycled-material innovation, and acoustic comfort. We create spaces
-              that look premium, work better, and support sustainability goals.
+              Ecovation combines sustainable materials, thoughtful interior design
+              and acoustic innovation to create spaces that perform beautifully.
             </p>
             <p>
-              From PET panels pressed from recycled bottles to acoustic planning,
-              custom finishes and end-to-end delivery — every decision is made to
-              serve the way a room is used.
+              From turnkey execution and residential interiors to PET acoustic panels,
+              CNC cutting, printing and ceiling solutions, each offering is designed
+              around the needs of the space.
             </p>
           </Reveal>
           <Reveal delay={0.1} className="studio__pillars">

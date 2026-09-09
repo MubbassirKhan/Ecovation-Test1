@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <Logo className="footer__brand" href="/" size={96} />
             <p className="footer__meta" style={{ marginTop: '1rem', color: 'var(--muted)', fontSize: '0.85rem' }}>
-              Sustainable Interiors &amp; Acoustics — Bangalore, India.
+              Sustainable interiors and acoustic solutions designed for better spaces — Bengaluru, India.
             </p>
           </div>
 
@@ -24,12 +24,12 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <span>© 2026 EcoVation Interiors</span>
+          <span>© 2026 Ecovation Interiors</span>
           <span className="footer__contact">
             <a href={CONTACT.emailHref}>{CONTACT.email}</a>
             <a href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</a>
           </span>
-          <span className="footer__addr">Nagasandra Tumkur Road, Bangalore — 560073</span>
+          <span className="footer__addr">Mahalakshmi Layout, Bengaluru - 560082</span>
         </div>
       </div>
     </footer>

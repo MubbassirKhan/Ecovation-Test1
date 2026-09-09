@@ -4,14 +4,14 @@ import { IMAGES } from './projects';
 
 const u = IMAGES;
 
-/* The two service lines shown on the Home "Our Services" section. */
+/* Verified service lines shown on the Home "Our Services" section. */
 export const HOME_SERVICES = [
   {
-    id: 'workspaces',
+    id: 'interior-turnkey',
     index: '01',
-    title: 'Workspaces',
+    title: 'Interior Turnkey',
     blurb:
-      'Workspace design and fit-outs that improve flow, comfort, and brand experience. Built for productivity, collaboration, and acoustic balance.',
+      'Complete design-to-execution workspace and residential solutions, from concept to handover.',
     image: IMAGES.openOffice,
     to: '/workspaces',
   },
@@ -20,7 +20,7 @@ export const HOME_SERVICES = [
     index: '02',
     title: 'Residential',
     blurb:
-      'Acoustic comfort and sustainable interiors for homes — home offices, media rooms, living spaces and bedrooms designed for clarity and calm.',
+      'Thoughtfully designed residential interiors combining aesthetics, comfort, sustainability and acoustic performance.',
     image: IMAGES.collaboration,
     to: '/residential',
   },
@@ -29,102 +29,149 @@ export const HOME_SERVICES = [
     index: '03',
     title: 'Acoustic Panels',
     blurb:
-      'PET acoustic panels and systems that reduce echo and improve speech clarity. Customizable forms and finishes for any interior style.',
+      'Advanced sound solutions made from recycled PET for superior acoustic performance and sustainable interior design.',
     image: IMAGES.acousticPanels,
     to: '/acoustic-panels',
+  },
+  {
+    id: 'cnc-cutting',
+    index: '04',
+    title: 'CNC Cutting',
+    blurb: 'Precision CNC cutting for custom patterns, shapes and architectural panel applications.',
+    image: IMAGES.customAcoustics,
+    to: '/acoustic-panels#cnc-cut-panels',
+  },
+  {
+    id: 'printed-panels',
+    index: '05',
+    title: 'Printed Panels',
+    blurb: 'High-quality printed designs on acoustic surfaces for brand expression and visual environments.',
+    image: IMAGES.customAcoustics,
+    to: '/acoustic-panels#printed-panels',
+  },
+  {
+    id: 'ceiling-solutions',
+    index: '06',
+    title: 'Ceiling Solutions',
+    blurb: 'Acoustic ceiling treatments, baffles, clouds and custom ceiling designs for any space.',
+    image: IMAGES.clouds,
+    to: '/acoustic-panels#cell-ceilings',
   },
 ];
 
 /* The workspace solutions Ecovation delivers (/workspaces). */
 export const WORKSPACE_FOCUS = [
-  'Office interiors',
+  'Open office areas',
   'Meeting rooms',
-  'Collaboration zones',
-  'Reception areas',
-  'Open office environments',
+  'Reception & lobby',
   'Breakout spaces',
-  'Workspace fit-outs',
-  'Acoustic planning',
-  'Sustainable materials',
-  'Custom finishes',
+  'Focus zones',
+  'Hybrid collaboration',
 ];
 
 /* What a workspace is meant to achieve — not simply to look good. */
 export const WORKSPACE_OUTCOMES = [
-  'Improve productivity',
-  'Improve comfort',
-  'Support collaboration',
-  'Improve acoustic balance',
-  'Strengthen brand experience',
-  'Support sustainability goals',
+  'Collaborative spaces',
+  'Focus zones',
+  'Sustainable materials',
+  'Productivity enhancement',
 ];
 
 export const ACOUSTIC_SOLUTIONS = [
   {
     id: 'pet-panels',
     index: '01',
-    title: 'PET Acoustic Panels',
-    blurb:
-      'The core of the system — recycled PET boards that absorb echo and sharpen speech, across a wide range of colours, shapes and finishes.',
-    image: IMAGES.acousticPanels,
-    notes: ['Recycled PET', 'Echo reduction', 'Colour & finish options'],
-  },
-  {
-    id: 'baffles',
-    index: '02',
     title: 'Acoustic Baffles',
     blurb:
-      'Suspended panels that hang above the work like quiet clouds — absorbing echo across large open floors without eating ceiling light.',
+      'Suspended vertical panels for open spaces and high ceilings, designed to reduce reverberation in large areas.',
+    image: IMAGES.acousticPanels,
+    notes: ['Open spaces', 'High ceilings', 'Reverberation control'],
+  },
+  {
+    id: 'cell-ceilings',
+    index: '02',
+    title: 'Cell Ceiling Systems',
+    blurb:
+      'Modular ceiling systems for comprehensive acoustic coverage in offices and commercial spaces.',
     image: IMAGES.baffles,
-    notes: ['Open-plan echo', 'Trapeze mounting', 'PET & felt faces'],
+    notes: ['Modular system', 'Office interiors', 'Commercial spaces'],
   },
   {
     id: 'cloud-ceilings',
     index: '03',
-    title: 'Cloud Ceilings',
+    title: 'CNC Cut Panels',
     blurb:
-      'Floating acoustic islands that absorb the booming reflections off hard ceilings — crisp speech in meeting and dining rooms.',
+      'Precision-cut custom patterns that combine acoustic functionality with architectural design.',
     image: IMAGES.clouds,
-    notes: ['Speech clarity', 'Designer shapes', 'Easy retro-fit'],
+    notes: ['Custom patterns', 'Precision cutting', 'Architectural detail'],
   },
   {
     id: 'acoustic-screens',
     index: '04',
     title: 'Acoustic Screens',
     blurb:
-      'Mobile and fixed screens that carve quiet out of open space — freestanding walls of softness wherever the sound needs to stop.',
+      'Portable and flexible solutions for creating private zones in open offices and dynamic spaces.',
     image: IMAGES.screens,
-    notes: ['Space division', 'Mobile / fixed', 'Fabric + PET'],
+    notes: ['Portable', 'Flexible', 'Private zones'],
   },
   {
-    id: 'custom',
+    id: 'acoustic-clouds',
     index: '05',
-    title: 'Custom Shapes & Finishes',
+    title: 'Acoustic Clouds',
     blurb:
-      'When the space defines the problem, the panel answers — bespoke shapes, brand-cut patterns and custom finishes built to order.',
+      'Floating ceiling elements for decorative acoustic treatment that add visual interest while improving room acoustics.',
     image: IMAGES.customAcoustics,
-    notes: ['Custom shapes', 'Custom finishes', 'Brand patterns'],
+    notes: ['Floating elements', 'Ceiling treatment', 'Decorative acoustic'],
+  },
+  {
+    id: 'printed-panels',
+    index: '06',
+    title: 'Printed Panels',
+    blurb:
+      'Custom graphics and designs on acoustic surfaces for branding, artistic expression and unique environments.',
+    image: IMAGES.customAcoustics,
+    notes: ['Custom graphics', 'Brand expression', 'Printed surfaces'],
   },
 ];
 
 export const ACOUSTIC_BENEFITS = [
   {
-    title: 'Acoustic performance',
-    body: 'Absorptive surfaces tame the echo of hard rooms, so sound decays cleanly instead of bouncing.',
+    title: 'Superior sound absorption',
+    body: 'NRC ratings range from 0.30 to 0.95 depending on thickness and mounting method.',
   },
   {
-    title: 'Clearer speech',
-    body: 'Less reverberation means voices arrive sharp at their target — meetings become effortless to follow.',
+    title: 'Versatile applications',
+    body: 'Suitable for walls, ceilings, partition screens, furniture and integrated lighting.',
   },
   {
-    title: 'Sustainable material',
-    body: 'Panels are pressed from recycled PET bottles — light, rigid and fire-safe, giving old plastic a quieter second life.',
+    title: 'Customizable surface',
+    body: 'Smooth, pin-receptive and printable surfaces support a wide range of design possibilities.',
   },
   {
-    title: 'Modern aesthetics',
-    body: 'PET carries colour, pattern and brand language; the acoustic fix becomes the design statement.',
+    title: 'Moisture resistant',
+    body: 'Non-hygroscopic and mold-resistant for long-lasting performance.',
   },
 ];
 
 export const PET_NOTE =
-  'PET acoustic panels are made from recycled PET bottles, compressed into sound-absorbing boards — light, rigid, fire-safe and endlessly customisable. They reduce echo and improve speech clarity while allowing designers to create visually distinctive interiors.';
+  'Ecovation transforms post-consumer PET bottles into premium acoustic panels. The panels contain at least 75% recycled PET, are lightweight, durable, non-hygroscopic and mold-resistant, with EN13501-1: B-s1,d0 fire rating.';
+
+export const PANEL_SPECS = [
+  '100% polyester fiber (PET)',
+  'At least 75% post-consumer recycled PET',
+  '9 mm and 12 mm ready stock; 24 mm with 4-week lead time',
+  'Standard size: 1220 x 2440 mm; 12 mm also 1220 x 2800 mm',
+  'NRC 0.30 - 0.95, depending on thickness and mounting',
+  'EN13501-1: B-s1, d0 fire rating',
+  'Low VOC, non-hygroscopic and mold-resistant',
+  '120+ standard EP-series colours',
+];
+
+export const PANEL_APPLICATIONS = [
+  'Corporate offices',
+  'Studios',
+  'Healthcare',
+  'Education',
+  'Hospitality',
+  'Residential interiors',
+];
