@@ -1,19 +1,39 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import Reveal from '../components/Reveal';
-import ParallaxImage from '../components/ParallaxImage';
 import CTASection from '../components/CTASection';
-import { WORKSPACE_FOCUS, WORKSPACE_OUTCOMES } from '../data/services';
+import { APPROACH_STEPS, CONTACT, HIGHLIGHTS } from '../data/siteData';
 import { IMAGES } from '../data/projects';
-import { CONTACT } from '../data/siteData';
-import { onImgError } from '../utils/image';
 import usePageMeta from '../utils/usePageMeta';
 
-/**
- * Workspaces — hero, philosophy (why it matters beyond looks), the full
- * list of workspace solutions, and the sustainable-interiors statement.
- */
+const CAPABILITIES = [
+  ['Collaborative Spaces', 'Open areas designed to foster teamwork while maintaining acoustic comfort'],
+  ['Focus Zones', 'Quiet areas with optimized acoustics for deep work and concentration'],
+  ['Sustainable Materials', '75% recycled content reducing environmental impact significantly'],
+  ['Productivity Enhancement', 'Proven to improve focus and reduce stress through better acoustics'],
+];
+
+const SOLUTIONS = [
+  ['01', 'Open Office Areas', 'Layouts that balance teamwork with acoustic comfort and natural flow.'],
+  ['02', 'Meeting Rooms', 'Clear speech, privacy, and a premium client experience.'],
+  ['03', 'Reception & Lobby', 'First impressions that reflect your brand identity powerfully.'],
+  ['04', 'Breakout Spaces', 'Relaxed zones designed for quick resets and creative ideas.'],
+  ['05', 'Focus Zones', 'Quiet areas built for deep work and concentration.'],
+  ['06', 'Hybrid Collaboration', 'Video-ready spaces with lighting and acoustic planning.'],
+];
+
+const STORY_IMAGES = [
+  ['https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80', 'Modern office design'],
+  ['https://ecovation.co.in/images/Projects/project11.jpeg', 'Creative workspace'],
+  ['https://ecovation.co.in/images/Projects/project12.jpeg', 'Open office'],
+  ['https://ecovation.co.in/images/Projects/project13.jpeg', 'Meeting room'],
+  ['https://ecovation.co.in/images/Projects/project14.jpeg', 'Collaborative space'],
+];
+
 export default function Workspaces() {
+  const [selectedStory, setSelectedStory] = useState(0);
+
   usePageMeta(
     'Workspaces — Ecovation, Sustainable Workspace Design in Bengaluru',
     'Sustainable workplace design and fit-outs that improve productivity, comfort and brand experience through smart space planning and acoustic solutions.'
@@ -21,192 +41,108 @@ export default function Workspaces() {
 
   return (
     <>
-      <Hero />
-      <PhilosophySection />
-      <FocusList />
-      <SustainableSection />
-      <CTASection
-        kicker="Start your project"
-        heading="The workspace your team deserves to work in."
-        lede="Share a few details and we'll send next steps within 24 hours."
-        email={{ href: CONTACT.emailHref, label: CONTACT.email }}
-        phone={{ href: CONTACT.phoneHref, label: CONTACT.phoneDisplay }}
-        note={CONTACT.address}
-        mediaSrc={IMAGES.openOffice}
-        ctaLabel="Get a quote"
-        to="/contact"
-      />
+      <section className="workspace-hero">
+        <div className="workspace-hero__media" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2400&q=90" alt="" loading="eager" decoding="async" />
+          <div className="workspace-hero__veil" />
+        </div>
+        <div className="workspace-hero__inner container">
+          <Reveal><p className="kicker"><span className="kicker__dot" aria-hidden="true" />Workplace design • Interior fit-out</p></Reveal>
+          <Reveal delay={0.08}><h1>Modern <em>workspaces</em></h1></Reveal>
+          <Reveal delay={0.16}><p>Sustainable workplace design and fit-outs that improve productivity, comfort, and brand experience through smart space planning and acoustic solutions.</p></Reveal>
+          <Reveal delay={0.24}>
+            <div className="workspace-hero__actions">
+              <Link className="workspace-button workspace-button--primary" to="/contact">Get Started <span>↗</span></Link>
+              <a className="workspace-button" href={CONTACT.whatsappHref} target="_blank" rel="noreferrer">Chat <span>↗</span></a>
+            </div>
+          </Reveal>
+        </div>
+        <div className="workspace-hero__scroll" aria-hidden="true"><span>Scroll to explore</span><i /></div>
+      </section>
+
+      <section className="workspace-stats" aria-label="Workspace service highlights">
+        <div className="container workspace-stats__grid">
+          <Stat value="6" label="Process Steps" />
+          <Stat value="120+" label="Panel Colors" />
+          <Stat value="75%" label="Recycled PET" />
+          <Stat value="100%" label="Design + Execution" />
+        </div>
+      </section>
+
+      <section className="workspace-about container">
+        <div className="workspace-about__intro">
+          <Reveal><p className="kicker"><span className="kicker__dot" aria-hidden="true" />About this service</p><h2>Transforming <em>work environments</em></h2></Reveal>
+          <Reveal delay={0.1}><p>We design modern workspaces with smart space planning, ergonomic layouts, and acoustic comfort—creating offices that support focus, collaboration, and well-being.</p></Reveal>
+        </div>
+        <div className="workspace-capabilities">
+          {CAPABILITIES.map(([title, body], index) => (
+            <Reveal className="workspace-capability" key={title} delay={index * 0.05}>
+              <div><h3>{title}</h3><p>{body}</p></div><b aria-hidden="true">↗</b>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="workspace-story container">
+        <Reveal>
+          <div className="workspace-story__lead">
+            <img
+              key={STORY_IMAGES[selectedStory][0]}
+              src={STORY_IMAGES[selectedStory][0]}
+              alt={STORY_IMAGES[selectedStory][1]}
+              loading="lazy"
+              decoding="async"
+            />
+            <span>{STORY_IMAGES[selectedStory][1]}</span>
+          </div>
+        </Reveal>
+        <div className="workspace-story__support" aria-label="Workspace image gallery">
+          {STORY_IMAGES.map(([src, alt], index) => index !== selectedStory && (
+            <Reveal key={src} delay={index * 0.05}>
+              <button
+                className="workspace-story__thumb"
+                type="button"
+                onClick={() => setSelectedStory(index)}
+                aria-label={`Show ${alt}`}
+              >
+                <figure>
+                  <img src={src} alt={alt} loading="lazy" decoding="async" />
+                  <figcaption>{alt}</figcaption>
+                  <span className="workspace-story__thumb-action" aria-hidden="true">View ↗</span>
+                </figure>
+              </button>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="workspace-solutions">
+        <div className="container">
+          <Reveal><p className="kicker"><span className="kicker__dot" aria-hidden="true" />Zone by zone</p><h2>Workspace <em>solutions</em></h2></Reveal>
+          <div className="workspace-solutions__grid">
+            {SOLUTIONS.map(([, title, body], index) => <Reveal className="workspace-solution" key={title} delay={index * 0.04}><div><h3>{title}</h3><p>{body}</p></div><b aria-hidden="true">↗</b></Reveal>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="workspace-break">
+        <img src={IMAGES.collaboration} alt="Collaborative workspace interior" loading="lazy" decoding="async" />
+        <div className="workspace-break__veil" />
+        <Reveal className="workspace-break__content"><p className="kicker"><span className="kicker__dot" aria-hidden="true" />Designed for better work</p><h2>Spaces that work beautifully—and sound right.</h2></Reveal>
+      </section>
+
+      <section className="workspace-process container">
+        <Reveal><p className="kicker"><span className="kicker__dot" aria-hidden="true" />How we deliver</p><h2>Our <em>process</em></h2></Reveal>
+        <div className="workspace-process__timeline">
+          {APPROACH_STEPS.map((step, index) => <Reveal className="workspace-process__step" key={step.title} delay={index * 0.04}><div><h3>{step.title}</h3><p>{step.body}</p></div></Reveal>)}
+        </div>
+      </section>
+
+      <CTASection kicker="Build better spaces" heading="Let's build a better workspace." lede="Create a workplace designed for focus, collaboration, comfort, and lasting impact." email={{ href: CONTACT.emailHref, label: CONTACT.email }} phone={{ href: CONTACT.phoneHref, label: CONTACT.phoneDisplay }} note={CONTACT.address} mediaSrc={IMAGES.openOffice} ctaLabel="Get Started" to="/contact" />
     </>
   );
 }
 
-function Hero() {
-  const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
-  const imgY = useTransform(scrollYProgress, [0, 1], ['0%', '12%']);
-  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '22%']);
-  const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-
-  return (
-    <section className="page-hero ws-hero" ref={heroRef}>
-      <div className="page-hero__media ws-hero__media" aria-hidden="true">
-        <motion.img
-          className="page-hero__img"
-          src={IMAGES.openOffice}
-          alt=""
-          style={{ y: imgY }}
-          loading="eager"
-          decoding="async"
-          onError={onImgError}
-        />
-        <div className="page-hero__veil" aria-hidden="true" />
-      </div>
-
-      <motion.div className="page-hero__inner container" style={{ y: contentY, opacity: fade }}>
-        <Reveal>
-          <p className="kicker">
-            <span className="kicker__dot" aria-hidden="true" />
-            Workspaces
-          </p>
-        </Reveal>
-        <Reveal delay={0.08}>
-          <h1 className="page-hero__title">
-            Modern <em>workspaces</em>.
-          </h1>
-        </Reveal>
-        <Reveal delay={0.16}>
-          <p className="page-hero__lede">
-            Sustainable workplace design and fit-outs with smart space planning,
-            ergonomic layouts and acoustic comfort.
-          </p>
-        </Reveal>
-      </motion.div>
-    </section>
-  );
-}
-
-function PhilosophySection() {
-  return (
-    <section className="ws-philosophy container">
-      <div className="ws-philosophy__grid">
-        <ParallaxImage
-          src={IMAGES.collaboration}
-          alt="Open collaboration area with people around a table"
-          ratio="4 / 3"
-          className="ws-philosophy__figure"
-        />
-        <div className="ws-philosophy__content">
-          <Reveal>
-            <p className="kicker">
-              <span className="kicker__dot" aria-hidden="true" />
-              Workspace philosophy
-            </p>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <h2 className="ws-philosophy__heading">
-              The goal is not simply an office that looks good.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <div className="ws-philosophy__body">
-              <p>
-                Ecovation designs modern workspaces with smart space planning,
-                ergonomic layouts and acoustic comfort for focus, collaboration and
-                well-being.
-              </p>
-              <p>
-                Sustainable materials and acoustic solutions support productivity,
-                comfort and the brand experience.
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.12} className="studio__pillars">
-            {WORKSPACE_OUTCOMES.map((o) => (
-              <span className="studio__pillar" key={o}>
-                {o}
-              </span>
-            ))}
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function FocusList() {
-  return (
-    <section className="focus">
-      <div className="container">
-        <Reveal>
-          <p className="kicker">
-            <span className="kicker__dot" aria-hidden="true" />
-            What we design
-          </p>
-        </Reveal>
-        <Reveal delay={0.08}>
-          <h2 className="focus__title">Workspace solutions, zone by zone.</h2>
-        </Reveal>
-      </div>
-
-      <div className="container">
-        <ol className="focus__list">
-          {WORKSPACE_FOCUS.map((item, i) => (
-            <Reveal key={item} className="focus__row" delay={(i % 5) * 0.04}>
-              <span className="focus__num" aria-hidden="true">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <span className="focus__label">{item}</span>
-            </Reveal>
-          ))}
-        </ol>
-      </div>
-    </section>
-  );
-}
-
-function SustainableSection() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const y = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
-
-  return (
-    <section className="ws-sustainable" id="sustainable" ref={ref}>
-      <div className="ws-sustainable__media" aria-hidden="true">
-        <motion.img
-          src={IMAGES.acousticPanels}
-          alt=""
-          style={{ y }}
-          loading="lazy"
-          decoding="async"
-          onError={onImgError}
-        />
-        <div className="ws-sustainable__veil" aria-hidden="true" />
-      </div>
-      <div className="ws-sustainable__inner container">
-        <Reveal>
-          <p className="kicker">
-            <span className="kicker__dot" aria-hidden="true" />
-            Sustainable interiors
-          </p>
-        </Reveal>
-        <Reveal delay={0.08}>
-          <h2 className="ws-sustainable__title">
-            Built from materials that <em>give back</em>.
-          </h2>
-        </Reveal>
-        <Reveal delay={0.16}>
-          <div className="ws-sustainable__body">
-            <p>
-              Ecovation uses sustainable materials with 75% recycled content to
-              reduce environmental impact while supporting acoustic comfort.
-            </p>
-            <p>
-              The service covers discovery, space planning, design development,
-              3D visualisation, execution and handover.
-            </p>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
+function Stat({ value, label }) {
+  return <div className="workspace-stat"><strong>{value}</strong><span>{label}</span></div>;
 }
