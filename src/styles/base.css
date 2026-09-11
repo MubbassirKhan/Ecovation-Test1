@@ -153,6 +153,108 @@ button {
   transform: translateX(4px);
 }
 
+.scroll-top {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2.5rem);
+  bottom: clamp(1rem, 3vw, 2.5rem);
+  z-index: 55;
+  display: grid;
+  place-items: center;
+  width: 3.15rem;
+  height: 3.15rem;
+  border: 1px solid rgba(189, 154, 98, 0.72);
+  border-radius: 50%;
+  background: rgba(13, 12, 11, 0.9);
+  color: var(--brass);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.75rem);
+  pointer-events: none;
+  box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.28), 0 0 0 0 rgba(189, 154, 98, 0.25);
+  transition: opacity 0.3s var(--ease-out), visibility 0.3s var(--ease-out), transform 0.3s var(--ease-out), background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.scroll-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scroll-top__arrow {
+  position: relative;
+  z-index: 1;
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.scroll-top__ring {
+  position: absolute;
+  inset: 0.28rem;
+  border: 1px solid rgba(189, 154, 98, 0.24);
+  border-radius: 50%;
+  transition: transform 0.45s var(--ease-out), border-color 0.3s ease;
+}
+
+.scroll-top::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: calc(100% + 0.8rem);
+  top: 50%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink-2);
+  white-space: nowrap;
+  font: 600 0.62rem/1 var(--font-sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(0.35rem, -50%);
+  transition: opacity 0.25s ease, transform 0.25s var(--ease-out);
+}
+
+.scroll-top:hover::after,
+.scroll-top:focus-visible::after {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.scroll-top:hover {
+  background: var(--brass);
+  color: var(--bg);
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2.3rem rgba(0, 0, 0, 0.34), 0 0 0 0.35rem rgba(189, 154, 98, 0.1);
+}
+
+.scroll-top:hover .scroll-top__arrow {
+  transform: translateY(-2px);
+}
+
+.scroll-top:hover .scroll-top__ring {
+  border-color: rgba(13, 12, 11, 0.35);
+  transform: scale(1.08);
+}
+
+@media (max-width: 640px) {
+  .scroll-top {
+    right: 1rem;
+    bottom: 1rem;
+    width: 2.85rem;
+    height: 2.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-top {
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+  }
+}
+
 /* Navbar
    ------------------------------------------------------------ */
 
