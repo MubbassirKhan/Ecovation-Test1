@@ -51,7 +51,7 @@ export const PROJECTS = [
       'Open office environments are one of Ecovation\'s featured workspace typologies, supported by smart space planning and acoustic solutions.',
     approach:
       'Ecovation approaches open office areas through space planning, acoustic comfort and sustainable materials.',
-    heroImage: local('Workspace/work1.jpg'),
+    heroImage: local('Projects/open-office.jpeg'),
     gallery: [
       local('Workspace/work2.jpg'),
       local('Workspace/work3.jpg'),
@@ -73,7 +73,7 @@ export const PROJECTS = [
       'Meeting rooms are a featured Ecovation workspace solution, with planning focused on clear speech, privacy and acoustic comfort.',
     approach:
       'The live offering describes meeting rooms as spaces for clear speech, privacy and a premium client experience.',
-    heroImage: local('Workspace/work5.jpg'),
+    heroImage: local('Projects/meeting-room.jpeg'),
     gallery: [
       local('Workspace/work6.jpg'),
       local('Workspace/work8.jpg'),
@@ -95,7 +95,7 @@ export const PROJECTS = [
       'Collaboration zones are part of Ecovation\'s workspace solutions, balancing teamwork with acoustic comfort.',
     approach:
       'Ecovation uses smart space planning and acoustic solutions to support collaboration and well-being.',
-    heroImage: local('Workspace/work8.jpg'),
+    heroImage: local('Projects/collaboration-zone.jpeg'),
     gallery: [
       local('Workspace/work9.jpg'),
       local('Workspace/work10.jpg'),
@@ -117,7 +117,7 @@ export const PROJECTS = [
       'Reception and lobby environments are designed around brand identity, spatial flow and acoustic comfort.',
     approach:
       'Ecovation identifies reception and lobby spaces as a core workspace application.',
-    heroImage: local('Workspace/work10.jpg'),
+    heroImage: local('Projects/reception.jpeg'),
     gallery: [
       local('Workspace/work11.jpg'),
       local('Workspace/work12.jpg'),
@@ -139,7 +139,7 @@ export const PROJECTS = [
       'Breakout spaces are a featured workspace solution for relaxed resets and creative ideas.',
     approach:
       'The offering combines space planning with acoustic solutions to support comfort and collaboration.',
-    heroImage: local('Workspace/work12.jpg'),
+    heroImage: local('Projects/breakout-space.jpeg'),
     gallery: [
       local('Workspace/work13.jpg'),
       local('Workspace/work14.jpg'),
@@ -161,7 +161,7 @@ export const PROJECTS = [
       'Ecovation provides sustainable workplace design and fit-outs with smart space planning, ergonomic layouts and acoustic comfort.',
     approach:
       'The live workspace service covers discovery, space planning, design development, 3D visualisation, execution and handover.',
-    heroImage: local('Workspace/work16.jpg'),
+    heroImage: local('Projects/workspace-interior.jpeg'),
     gallery: [
       local('Workspace/work1.jpg'),
       local('Workspace/work5.jpg'),

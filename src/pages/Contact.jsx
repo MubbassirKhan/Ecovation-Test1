@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Reveal from '../components/Reveal';
-import { CONTACT } from '../data/siteData';
-import { IMAGES } from '../data/projects';
+import { CONTACT, HIGHLIGHTS } from '../data/siteData';
 import { onImgError } from '../utils/image';
 import usePageMeta from '../utils/usePageMeta';
 
@@ -59,6 +58,29 @@ export default function Contact() {
     const errs = validate(values);
     setErrors(errs);
     if (Object.keys(errs).length === 0) {
+      const whatsappMessage = [
+        'Hello Ecovation Team,',
+        '',
+        'I would like to enquire about a project.',
+        '',
+        `Name: ${values.name.trim()}`,
+        `Email: ${values.email.trim()}`,
+        `Phone: ${values.phone.trim() || 'Not provided'}`,
+        `Company: ${values.company.trim() || 'Not provided'}`,
+        `Project Type: ${values.projectType}`,
+        '',
+        'Message:',
+        values.message.trim(),
+        '',
+        'Thank you.',
+      ].join('\n');
+
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const whatsappUrl = isMobile
+        ? `${CONTACT.whatsappHref}?text=${encodedMessage}`
+        : `https://web.whatsapp.com/send?phone=919538778892&text=${encodedMessage}`;
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
       setSent(true);
     }
   };
@@ -67,7 +89,7 @@ export default function Contact() {
     <>
       <section className="page-hero contact-hero">
         <div className="contact-hero__media" aria-hidden="true">
-          <img src={IMAGES.reception} alt="" loading="eager" decoding="async" onError={onImgError} />
+          <img src="/Ecovation%20Images/Workspace/contact-hero-hd.png" alt="" loading="eager" decoding="async" onError={onImgError} />
           <div className="contact-hero__veil" aria-hidden="true" />
         </div>
         <div className="page-hero__inner container">
@@ -87,10 +109,32 @@ export default function Contact() {
               Share a few details and we’ll send next steps within 24 hours.
             </p>
           </Reveal>
+          <Reveal delay={0.22}>
+            <div className="contact-hero__actions">
+              <a className="contact-hero__button contact-hero__button--primary" href="#contact-form">
+                Start your enquiry <span aria-hidden="true">↓</span>
+              </a>
+              <a className="contact-hero__button" href={CONTACT.whatsappHref} target="_blank" rel="noreferrer">
+                Chat on WhatsApp <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </Reveal>
         </div>
+        <Reveal className="contact-hero__aside" delay={0.22}>
+          <p className="contact-hero__aside-label">The Ecovation standard</p>
+          <p className="contact-hero__aside-copy">Sustainable interiors and acoustic solutions designed for better spaces.</p>
+          <div className="contact-hero__stats">
+            {HIGHLIGHTS.map((highlight) => (
+              <div key={highlight.label}>
+                <strong>{highlight.value}</strong>
+                <span>{highlight.label}</span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
-      <section className="contact-page container">
+      <section className="contact-page container" id="contact-form">
         <div className="contact-page__grid">
           {/* Real details */}
           <Reveal className="contact-page__details">
@@ -98,11 +142,12 @@ export default function Contact() {
               <span className="kicker__dot" aria-hidden="true" />
               Reach us directly
             </p>
-            <h2 className="contact-page__h2">Call, write or visit.</h2>
+            <h2 className="contact-page__h2">Let’s build better spaces.</h2>
+            <p className="contact-page__intro">A direct line to the Ecovation team in Bengaluru.</p>
 
             <ul className="contact-page__list">
-              <li className="contact-detail">
-                <span className="contact-detail__label">Ecovation</span>
+              <li className="contact-detail contact-detail--office">
+                <span className="contact-detail__label">Office</span>
                 <span className="contact-detail__value contact-detail__value--text">
                   {CONTACT.addressLine1}
                   <br />
@@ -128,6 +173,23 @@ export default function Contact() {
                 </a>
               </li>
             </ul>
+            <div className="contact-page__map">
+              <iframe
+                title="Ecovation office location in Mahalakshmi Layout, Bengaluru"
+                src="https://www.google.com/maps?q=Mahalakshmi+Layout+Bengaluru+Karnataka+560082&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <a href="https://www.google.com/maps/search/?api=1&query=Mahalakshmi+Layout+Bengaluru+Karnataka+560082" target="_blank" rel="noreferrer">
+                Open in Google Maps <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div className="contact-page__details-footer">
+              <a className="contact-page__whatsapp" href={CONTACT.whatsappHref} target="_blank" rel="noreferrer">
+                Chat with our team <span aria-hidden="true">↗</span>
+              </a>
+              <p>Monday - Friday<br />9:00 AM - 6:00 PM IST</p>
+            </div>
           </Reveal>
 
           {/* Form */}
@@ -145,9 +207,9 @@ export default function Contact() {
                   Thank you
                 </p>
                 <h2 className="form-success__title">Your message is on its way.</h2>
-                <p className="form-success__body">
-                  We will reply to <strong>{values.email}</strong> shortly. For anything urgent,
-                  call us on <a href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</a>.
+                  <p className="form-success__body">
+                    WhatsApp has opened with your enquiry ready to send. Please review it and tap send.
+                    For anything urgent, call us on <a href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</a>.
                 </p>
                 <button
                   className="form-success__again"
@@ -156,11 +218,16 @@ export default function Contact() {
                     setSent(false);
                   }}
                 >
-                  Send another message
+                  Send another enquiry
                 </button>
               </motion.div>
             ) : (
               <form className="form" noValidate onSubmit={onSubmit}>
+                <div className="form__intro">
+                  <p className="kicker"><span className="kicker__dot" aria-hidden="true" />Start a conversation</p>
+                  <h2>Tell us about your space.</h2>
+                  <p>Share a few details and we will prepare the right next step for your project.</p>
+                </div>
                 <div className="form__row">
                   <div className="field">
                     <label className="field__label" htmlFor="f-name">Name</label>
@@ -172,6 +239,7 @@ export default function Contact() {
                       onChange={set('name')}
                       autoComplete="name"
                       placeholder="Your name"
+                      required
                     />
                     {errors.name && <p className="field__error">{errors.name}</p>}
                   </div>
@@ -185,6 +253,7 @@ export default function Contact() {
                       onChange={set('email')}
                       autoComplete="email"
                       placeholder="you@company.com"
+                      required
                     />
                     {errors.email && <p className="field__error">{errors.email}</p>}
                   </div>
@@ -225,6 +294,7 @@ export default function Contact() {
                     className={`field__input field__select${errors.projectType ? ' field__input--error' : ''}`}
                     value={values.projectType}
                     onChange={set('projectType')}
+                      required
                   >
                     <option value="">Select a project type</option>
                     {PROJECT_TYPES.map((t) => (
@@ -243,12 +313,13 @@ export default function Contact() {
                     value={values.message}
                     onChange={set('message')}
                     placeholder="Tell us about your space — where it is, what it does, and what the room sounds like today."
+                    required
                   />
                   {errors.message && <p className="field__error">{errors.message}</p>}
                 </div>
 
                 <button className="form__submit" type="submit">
-                  Send enquiry <span aria-hidden="true">→</span>
+                  Continue to WhatsApp <span aria-hidden="true">↗</span>
                 </button>
                 <p className="form__note">
                   Prefer email? Write to us directly at

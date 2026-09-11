@@ -5,20 +5,18 @@ import Services from '../components/Services';
 import Projects from '../components/Projects';
 import CTASection from '../components/CTASection';
 import Reveal from '../components/Reveal';
+import ClientMarquee from '../components/ClientMarquee';
 import {
   HIGHLIGHTS,
   MISSION_VISION,
   WHY_CHOOSE,
   APPROACH_STEPS,
-  CLIENTS,
   CONTACT,
 } from '../data/siteData';
 import { PROJECTS, IMAGES } from '../data/projects';
 import usePageMeta from '../utils/usePageMeta';
 
 /**
- * Ecovation — Home.
- * Hero → Marquee → Key statistics → Who we are → Mission & Vision →
  * Our services → Featured projects → Why choose Ecovation → How we work
  * → Our clients → Ready to start? → Footer.
  */
@@ -187,16 +185,7 @@ function Clients() {
           </h2>
         </Reveal>
         <Reveal delay={0.14}>
-          <div className="clients__marquee" aria-label="Ecovation clients">
-            <div className="clients__track">
-              {[...CLIENTS, ...CLIENTS].map((c, i) => (
-                <div className="clients__item" key={`${c}-${i}`} aria-hidden={i >= CLIENTS.length}>
-                  <span className="clients__placeholder">Client logo</span>
-                  <strong>{c}</strong>
-                </div>
-              ))}
-            </div>
-          </div>
+          <ClientMarquee className="clients__marquee" />
         </Reveal>
       </div>
     </section>

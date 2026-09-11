@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
-import ProjectGrid from '../components/ProjectGrid';
 import CTASection from '../components/CTASection';
 import { PROJECTS, IMAGES } from '../data/projects';
 import { CONTACT } from '../data/siteData';
@@ -15,8 +15,7 @@ const FILTERS = [
 
 /**
  * Projects — the featured projects index.
- * Large lead image, asymmetric tiles, hover effects, editorial numerals
- * and client-side category filters (Workspaces / Acoustic).
+ * Editorial project rows with client-side category filters.
  */
 export default function ProjectsPage() {
   usePageMeta(
@@ -25,11 +24,25 @@ export default function ProjectsPage() {
   );
 
   const [filter, setFilter] = useState('all');
-  const shown = filter === 'all' ? PROJECTS : PROJECTS.filter((p) => p.category.toLowerCase() === filter);
+  const shown = filter === 'all'
+    ? PROJECTS
+    : PROJECTS.filter((p) => filter === 'acoustics'
+      ? p.category.toLowerCase().startsWith('acoustic')
+      : p.category.toLowerCase() === 'workspaces');
 
   return (
     <>
-      <section className="page-hero pg-hero">
+      <section className="page-hero pg-hero projects-hero">
+        <div className="projects-hero__media" aria-hidden="true">
+          <img
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2400&q=90"
+            alt=""
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
+          <div className="projects-hero__veil" aria-hidden="true" />
+        </div>
         <div className="page-hero__inner container">
           <Reveal>
             <p className="kicker">
@@ -48,11 +61,31 @@ export default function ProjectsPage() {
               collaboration zones, receptions and breakout spaces.
             </p>
           </Reveal>
+          <Reveal delay={0.22}>
+            <div className="projects-hero__actions">
+              <a className="projects-hero__button projects-hero__button--primary" href="#projects-list">
+                Explore projects <span aria-hidden="true">↓</span>
+              </a>
+              <Link className="projects-hero__button" to="/contact">
+                Discuss a project <span aria-hidden="true">↗</span>
+              </Link>
+            </div>
+          </Reveal>
         </div>
+        <Reveal className="projects-hero__aside" delay={0.26}>
+          <p className="projects-hero__aside-label">The Ecovation portfolio</p>
+          <p className="projects-hero__aside-copy">Spaces designed to work beautifully and sound right.</p>
+          <div className="projects-hero__capabilities">
+            <span>Recycled PET materials</span>
+            <span>Acoustic planning</span>
+            <span>120+ custom colors</span>
+            <span>End-to-end delivery</span>
+          </div>
+        </Reveal>
       </section>
 
-      <section className="pg-list">
-        <div className="container">
+      <section className="pg-list" id="projects-list">
+        <div className="container projects-index">
           <div className="pg-filter" role="group" aria-label="Filter projects by category">
             {FILTERS.map((f) => (
               <button
@@ -66,8 +99,32 @@ export default function ProjectsPage() {
             ))}
           </div>
 
-          <motion.div key={filter} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-            <ProjectGrid projects={shown} />
+          <motion.div className="projects-list" key={filter} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+            {shown.map((project, index) => (
+              <motion.article
+                className={`project-row${index % 2 ? ' project-row--reverse' : ''}`}
+                key={project.id}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px 0px' }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Link className="project-row__media" to={`/projects/${project.slug}`} aria-label={`${project.title} - view project`}>
+                  <img src={project.heroImage} alt={project.title} loading="lazy" decoding="async" />
+                  <span className="project-row__number">{project.index}</span>
+                  <span className="project-row__category">{project.category}</span>
+                </Link>
+                <div className="project-row__content">
+                  <p className="project-row__eyebrow">{project.index} / {project.category}</p>
+                  <h2>{project.title}</h2>
+                  <p className="project-row__summary">{project.summary}</p>
+                  <p className="project-row__detail">{project.description}</p>
+                  <Link className="project-row__link" to={`/projects/${project.slug}`}>
+                    View project <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </motion.article>
+            ))}
           </motion.div>
         </div>
       </section>
