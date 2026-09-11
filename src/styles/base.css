@@ -5573,6 +5573,324 @@ a.contact-detail__value:hover {
   }
 }
 
+/* ------------------------------------------------------------
+   About page — responsive composition overrides
+   ------------------------------------------------------------ */
+
+@media (max-width: 1024px) {
+  .about-section,
+  .about-purpose,
+  .about-team,
+  .about-contact {
+    width: min(100% - 3rem, 72rem);
+    min-width: 0;
+  }
+
+  .about-purpose__grid,
+  .about-pet__intro,
+  .about-values__grid,
+  .about-pet__benefits,
+  .about-team .team__grid,
+  .about-contact__header,
+  .about-contact__details {
+    min-width: 0;
+  }
+
+  .about-pet__intro {
+    grid-template-columns: minmax(0, 1fr) minmax(13rem, 0.8fr);
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+
+  .about-team__header {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 639px) {
+  .about-hero {
+    height: 84svh;
+    min-height: 560px;
+  }
+
+  .about-hero .page-hero__media img {
+    object-position: 64% center !important;
+  }
+
+  .about-hero .page-hero__inner {
+    width: calc(100% - 3rem);
+    padding-bottom: 2.5rem;
+  }
+
+  .about-hero .page-hero__title {
+    max-width: 12ch;
+    font-size: clamp(2.7rem, 13vw, 4.2rem);
+    line-height: 0.98;
+  }
+
+  .about-hero .page-hero__lede {
+    max-width: 33ch;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .about-hero__actions {
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .about-hero__button {
+    justify-content: center;
+    width: min(100%, 20rem);
+  }
+
+  .about-section,
+  .about-purpose,
+  .about-team,
+  .about-contact {
+    width: calc(100% - 3rem);
+    padding-block: clamp(4.5rem, 16vw, 6.5rem);
+  }
+
+  .about-purpose {
+    padding-bottom: clamp(4.5rem, 16vw, 6.5rem);
+  }
+
+  .about-section__title,
+  .team__title {
+    max-width: 100%;
+    font-size: clamp(2.25rem, 10vw, 3.4rem);
+    line-height: 1.02;
+  }
+
+  .about-purpose__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    margin-top: 2.5rem;
+  }
+
+  .about-purpose__item {
+    min-width: 0;
+    padding: 1.4rem 0 1.7rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .about-purpose__item:last-child {
+    border-bottom: 0;
+  }
+
+  .about-purpose__item > p:last-child {
+    max-width: none;
+    font-size: clamp(1.22rem, 5.2vw, 1.55rem);
+    line-height: 1.35;
+  }
+
+  .about-values {
+    padding-inline: 0;
+  }
+
+  .about-values__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding-bottom: 4.5rem;
+  }
+
+  .about-values__item {
+    min-height: 0;
+    padding: 1.4rem 0 1.7rem;
+  }
+
+  .about-values__item h3 {
+    margin-top: 0.9rem;
+    font-size: clamp(1.45rem, 6vw, 1.8rem);
+  }
+
+  .about-values__item p {
+    max-width: none;
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .about-pet {
+    overflow: hidden;
+  }
+
+  .about-pet__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .about-pet__intro > div:first-child,
+  .about-pet__intro > div:first-child p,
+  .about-pet__stat,
+  .about-pet__stat p {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+
+  .about-pet__intro > div:first-child p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .about-pet__stat {
+    padding: 1.5rem 0 0 1.1rem;
+    border-left: 1px solid var(--brass);
+    border-top: 0;
+  }
+
+  .about-pet__stat strong {
+    font-size: clamp(4.8rem, 22vw, 7rem);
+    line-height: 0.9;
+  }
+
+  .about-pet__stat span {
+    max-width: 20ch;
+    line-height: 1.4;
+  }
+
+  .about-pet__stat p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .about-pet__benefits {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    margin-top: 3.5rem;
+    padding-bottom: 0;
+  }
+
+  .about-pet__benefit {
+    min-width: 0;
+    padding: 1.35rem 0 1.55rem;
+  }
+
+  .about-pet__benefit p {
+    max-width: none;
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .about-team {
+    min-height: 0;
+    display: block;
+  }
+
+  .about-team__header {
+    display: block;
+    width: 100%;
+  }
+
+  .about-team__header .kicker {
+    margin-bottom: 1rem;
+  }
+
+  .about-team__lede {
+    max-width: 34ch;
+    margin-top: 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .about-team .team__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3.5rem;
+    width: 100%;
+    margin-top: 3rem;
+  }
+
+  .about-team .team__member,
+  .about-team .team__figure,
+  .about-team .team__info {
+    width: 100%;
+    max-width: 22rem;
+    min-width: 0;
+    margin-inline: auto;
+  }
+
+  .about-team .team__figure {
+    aspect-ratio: 4 / 5;
+  }
+
+  .about-team .team__bio {
+    max-width: none;
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .about-clients {
+    min-height: 0;
+    width: 100%;
+  }
+
+  .about-clients > .about-section {
+    width: 100%;
+    padding-block: 4.5rem;
+  }
+
+  .about-clients__marquee,
+  .client-marquee {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 2.5rem;
+  }
+
+  .about-clients__logo,
+  .client-marquee__item {
+    flex-basis: 9.5rem;
+    height: 7rem;
+    padding: 1rem;
+  }
+
+  .about-clients__logo img,
+  .client-marquee__item img {
+    height: 3rem;
+  }
+
+  .about-contact {
+    min-height: 0;
+    display: block;
+  }
+
+  .about-contact__header {
+    display: block;
+  }
+
+  .about-contact__lede {
+    max-width: 30ch;
+    margin-top: 1.3rem;
+    font-size: clamp(1.5rem, 7vw, 2.2rem);
+    line-height: 1.15;
+  }
+
+  .about-contact__grid {
+    width: 100%;
+    margin-top: 2.8rem;
+  }
+
+  .about-contact__details {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .about-contact__item {
+    min-width: 0;
+  }
+
+  .about-contact__item a,
+  .about-contact__item address,
+  .about-contact__item p {
+    overflow-wrap: break-word;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .card__img,
   .prj-gallery__figure img {
